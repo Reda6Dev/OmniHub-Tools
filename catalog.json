@@ -1,19 +1,39 @@
-[
-  {
-    "id": "system.temp-cleaner",
-    "title": "Clean Windows Temp",
-    "titleAr": "تنظيف الملفات المؤقتة",
-    "description": "Cleans temporary system files.",
-    "descriptionAr": "أداة لتنظيف مجلد Temp المؤقت لتسريع النظام.",
-    "category": "system",
-    "categoryEn": "System & Tools",
-    "categoryAr": "النظام والأدوات",
-    "categoryIcon": "⚙️",
-    "executionType": "ExternalProcess",
-    "executable": "cmd.exe",
-    "arguments": "/c del /q/f/s %TEMP%\\*",
-    "version": "1.0.0",
-    "publisher": "Reda6Dev",
-    "parameters": []
-  }
-]
+{
+  "catalogVersion": "1.0.0",
+  "name": "OmniHub Official Tools",
+  "updatedAt": "2026-09-16",
+  "tools": [
+    {
+      "id": "godot.headless-export",
+      "name": "Godot Headless Export",
+      "category": "godot",
+      "version": "1.0.0",
+      "publisher": "Reda6Dev",
+      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/godot/godot.json"
+    },
+    {
+      "id": "dotnet.build-runner",
+      "name": ".NET Project Build",
+      "category": "dotnet",
+      "version": "1.0.0",
+      "publisher": "Reda6Dev",
+      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/dotnet/dotnet.json"
+    },
+    {
+      "id": "media.ffmpeg-convert",
+      "name": "FFmpeg Video Converter",
+      "category": "media",
+      "version": "1.0.0",
+      "publisher": "Reda6Dev",
+      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/media/ffmpeg.json"
+    },
+    {
+      "id": "system.temp-cleaner",
+      "name": "Clean Windows Temp",
+      "category": "system",
+      "version": "1.0.0",
+      "publisher": "Reda6Dev",
+      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/system/cleaner.json"
+    }
+  ]
+}

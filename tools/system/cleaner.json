@@ -1,10 +1,19 @@
-﻿{
-  "id": "sys-cleaner",
-  "name": "System Cleaner",
-  "category": "system",
-  "version": "1.0.0",
-  "description": "Basic cache and temp files utility",
-  "executable": "cleaner.bat",
-  "downloadUrl": "",
-  "installType": "script"
-}
+﻿[
+  {
+    "id": "system.temp-cleaner",
+    "title": "Clean Windows Temp",
+    "titleAr": "تنظيف الملفات المؤقتة",
+    "description": "Cleans temporary system files.",
+    "descriptionAr": "أداة لتنظيف مجلد Temp المؤقت لتسريع النظام.",
+    "category": "system",
+    "categoryEn": "System & Tools",
+    "categoryAr": "النظام والأدوات",
+    "categoryIcon": "⚙️",
+    "executionType": "ExternalProcess",
+    "executable": "cmd.exe",
+    "arguments": "/c del /q/f/s %TEMP%\\*",
+    "version": "1.0.0",
+    "publisher": "Reda6Dev",
+    "parameters": []
+  }
+]
