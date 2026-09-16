@@ -1,10 +1,21 @@
-﻿{
-  "id": "dotnet-sdk",
-  "name": ".NET SDK",
-  "category": "dotnet",
-  "version": "8.0.0",
-  "description": ".NET SDK",
-  "executable": "dotnet.exe",
-  "downloadUrl": "https://dotnetcli.azureedge.net/dotnet/Sdk/8.0.401/dotnet-sdk-8.0.401-win-x64.zip",
-  "installType": "installer"
-}
+[
+  {
+    "id": "dotnet.build-runner",
+    "title": ".NET Project Build",
+    "titleAr": "بناء مشروع دوت نت",
+    "description": "Builds a .NET solution or project.",
+    "descriptionAr": "بناء مشروع أو حل .NET بسرعة.",
+    "category": "dotnet",
+    "categoryEn": ".NET & Git",
+    "categoryAr": "دوت نت وجيت",
+    "categoryIcon": "⚡",
+    "executionType": "ExternalProcess",
+    "executable": "dotnet",
+    "arguments": "build \"${ProjectPath}\" -c Release",
+    "version": "1.0.0",
+    "publisher": "Reda6Dev",
+    "parameters": [
+      { "id": "ProjectPath", "label": "Project or Solution Path", "type": "FilePath", "isRequired": true }
+    ]
+  }
+]
