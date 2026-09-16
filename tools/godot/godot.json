@@ -1,10 +1,26 @@
-﻿{
-  "id": "godot-engine",
-  "name": "Godot Engine",
-  "category": "godot",
-  "version": "4.3.0",
-  "description": "Multi-platform 2D and 3D game engine",
-  "executable": "Godot_v4.3-stable_win64.exe",
-  "downloadUrl": "https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_win64.exe.zip",
-  "installType": "portable_zip"
-}
+﻿[
+  {
+    "id": "godot.headless-export",
+    "title": "Godot Headless Export",
+    "titleAr": "تصدير Godot الصامت",
+    "description": "Silently exports the Godot project for the selected platform.",
+    "descriptionAr": "تصدير صامت وسريع لمشروع Godot للمنصة المحددة.",
+    "category": "Godot",
+    "categoryEn": "Godot Engine",
+    "categoryAr": "محرك الألعاب Godot",
+    "categoryIcon": "🎮",
+    "executionType": "ExternalProcess",
+    "executable": "${GodotPath}",
+    "arguments": "--headless --export-release \"${ExportPreset}\" \"${OutputPath}\"",
+    "workingDirectory": "${ProjectPath}",
+    "iconKey": "Code",
+    "version": "1.0.0",
+    "publisher": "Reda6Dev",
+    "parameters": [
+      { "id": "GodotPath", "label": "Godot Executable Path", "type": "FilePath", "isRequired": true },
+      { "id": "ProjectPath", "label": "Project Folder", "type": "DirectoryPath", "isRequired": true },
+      { "id": "ExportPreset", "label": "Export Preset Name", "type": "Text", "isRequired": true },
+      { "id": "OutputPath", "label": "Output File", "type": "FilePath", "isRequired": true }
+    ]
+  }
+]

@@ -1,39 +1,19 @@
-{
-  "catalogVersion": "1.0.0",
-  "name": "OmniHub Official Tools",
-  "updatedAt": "2026-09-16",
-  "tools": [
-    {
-      "id": "godot-engine",
-      "name": "Godot Engine",
-      "category": "godot",
-      "version": "4.3.0",
-      "publisher": "Reda6Dev",
-      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/godot/godot.json"
-    },
-    {
-      "id": "dotnet-sdk",
-      "name": ".NET SDK",
-      "category": "dotnet",
-      "version": "8.0.0",
-      "publisher": "Reda6Dev",
-      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/dotnet/dotnet.json"
-    },
-    {
-      "id": "ffmpeg-media",
-      "name": "FFmpeg",
-      "category": "media",
-      "version": "7.0.0",
-      "publisher": "Reda6Dev",
-      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/media/ffmpeg.json"
-    },
-    {
-      "id": "sys-cleaner",
-      "name": "System Cleaner",
-      "category": "system",
-      "version": "1.0.0",
-      "publisher": "Reda6Dev",
-      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/system/cleaner.json"
-    }
-  ]
-}
+[
+  {
+    "id": "system.temp-cleaner",
+    "title": "Clean Windows Temp",
+    "titleAr": "تنظيف الملفات المؤقتة",
+    "description": "Cleans temporary system files.",
+    "descriptionAr": "أداة لتنظيف مجلد Temp المؤقت لتسريع النظام.",
+    "category": "system",
+    "categoryEn": "System & Tools",
+    "categoryAr": "النظام والأدوات",
+    "categoryIcon": "⚙️",
+    "executionType": "ExternalProcess",
+    "executable": "cmd.exe",
+    "arguments": "/c del /q/f/s %TEMP%\\*",
+    "version": "1.0.0",
+    "publisher": "Reda6Dev",
+    "parameters": []
+  }
+]

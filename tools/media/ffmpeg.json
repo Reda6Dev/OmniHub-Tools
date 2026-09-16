@@ -1,10 +1,22 @@
-﻿{
-  "id": "ffmpeg-media",
-  "name": "FFmpeg",
-  "category": "media",
-  "version": "7.0.0",
-  "description": "Audio/Video processing toolset",
-  "executable": "bin/ffmpeg.exe",
-  "downloadUrl": "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip",
-  "installType": "portable_zip"
-}
+﻿[
+  {
+    "id": "media.ffmpeg-convert",
+    "title": "FFmpeg Video Converter",
+    "titleAr": "محول الفيديو FFmpeg",
+    "description": "Converts video files to MP4 format.",
+    "descriptionAr": "تحويل ملفات الفيديو إلى صيغة MP4.",
+    "category": "media",
+    "categoryEn": "Media & Assets",
+    "categoryAr": "الوسائط والأصول",
+    "categoryIcon": "🎬",
+    "executionType": "ExternalProcess",
+    "executable": "ffmpeg",
+    "arguments": "-i \"${InputFile}\" -c:v libx264 \"${OutputFile}\"",
+    "version": "1.0.0",
+    "publisher": "Reda6Dev",
+    "parameters": [
+      { "id": "InputFile", "label": "Input Video File", "type": "FilePath", "isRequired": true },
+      { "id": "OutputFile", "label": "Output MP4 Path", "type": "FilePath", "isRequired": true }
+    ]
+  }
+]
