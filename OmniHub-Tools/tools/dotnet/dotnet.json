@@ -1,0 +1,10 @@
+﻿{
+  "id": "dotnet-sdk",
+  "name": ".NET SDK",
+  "category": "dotnet",
+  "version": "8.0.0",
+  "description": ".NET SDK",
+  "executable": "dotnet.exe",
+  "downloadUrl": "https://dotnetcli.azureedge.net/dotnet/Sdk/8.0.401/dotnet-sdk-8.0.401-win-x64.zip",
+  "installType": "installer"
+}

@@ -1,0 +1,10 @@
+﻿{
+  "id": "sys-cleaner",
+  "name": "System Cleaner",
+  "category": "system",
+  "version": "1.0.0",
+  "description": "Basic cache and temp files utility",
+  "executable": "cleaner.bat",
+  "downloadUrl": "",
+  "installType": "script"
+}

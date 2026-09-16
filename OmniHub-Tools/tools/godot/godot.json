@@ -1,0 +1,10 @@
+﻿{
+  "id": "godot-engine",
+  "name": "Godot Engine",
+  "category": "godot",
+  "version": "4.3.0",
+  "description": "Multi-platform 2D and 3D game engine",
+  "executable": "Godot_v4.3-stable_win64.exe",
+  "downloadUrl": "https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_win64.exe.zip",
+  "installType": "portable_zip"
+}

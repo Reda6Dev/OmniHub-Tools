@@ -1,0 +1,39 @@
+﻿{
+  "catalogVersion": "1.0.0",
+  "name": "OmniHub Official Tools",
+  "updatedAt": "2026-09-16",
+  "tools": [
+    {
+      "id": "godot-engine",
+      "name": "Godot Engine",
+      "category": "godot",
+      "version": "4.3.0",
+      "publisher": "Reda6Dev",
+      "definitionUrl": "tools/godot/godot.json"
+    },
+    {
+      "id": "dotnet-sdk",
+      "name": ".NET SDK",
+      "category": "dotnet",
+      "version": "8.0.0",
+      "publisher": "Reda6Dev",
+      "definitionUrl": "tools/dotnet/dotnet.json"
+    },
+    {
+      "id": "ffmpeg-media",
+      "name": "FFmpeg",
+      "category": "media",
+      "version": "7.0.0",
+      "publisher": "Reda6Dev",
+      "definitionUrl": "tools/media/ffmpeg.json"
+    },
+    {
+      "id": "sys-cleaner",
+      "name": "System Cleaner",
+      "category": "system",
+      "version": "1.0.0",
+      "publisher": "Reda6Dev",
+      "definitionUrl": "tools/system/cleaner.json"
+    }
+  ]
+}

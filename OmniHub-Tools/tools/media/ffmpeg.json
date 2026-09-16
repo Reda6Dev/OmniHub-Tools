@@ -1,0 +1,10 @@
+﻿{
+  "id": "ffmpeg-media",
+  "name": "FFmpeg",
+  "category": "media",
+  "version": "7.0.0",
+  "description": "Audio/Video processing toolset",
+  "executable": "bin/ffmpeg.exe",
+  "downloadUrl": "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip",
+  "installType": "portable_zip"
+}
