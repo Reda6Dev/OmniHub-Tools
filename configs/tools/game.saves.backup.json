@@ -1,0 +1,30 @@
+{
+  "id": "game.saves.backup",
+  "name": "Game Saves Timestamped Auto-Backup",
+  "nameAr": "النسخ الاحتياطي التلقائي والمؤرخ لحفظ الألعاب",
+  "description": "Compresses a game saves folder into a timestamped ZIP archive stored in a designated backup directory.",
+  "descriptionAr": "تقوم هذه الأداة بضغط كامل محتويات مجلد حفظ اللعبة المحدد (SavesDir) داخل ملف أرشيف ZIP واحد، وإضافة طابع زمني دقيق بصيغة السنة والشهر واليوم والساعة والدقيقة والثانية إلى اسم الملف الناتج، ثم حفظه داخل مجلد النسخ الاحتياطية المحدد (BackupDir)، مما يسمح بالاحتفاظ بعدة نسخ مؤرخة من ملفات الحفظ والعودة لأي منها عند الحاجة.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"Compress-Archive -Path '${SavesDir}\\*' -DestinationPath \\\"${BackupDir}\\SaveBackup_$(Get-Date -Format 'yyyyMMdd_HHmmss').zip\\\"\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "SavesDir",
+      "label": "مجلد حفظ اللعبة",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "BackupDir",
+      "label": "مجلد النسخ الاحتياطية",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

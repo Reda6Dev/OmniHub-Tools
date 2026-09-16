@@ -1,0 +1,42 @@
+{
+  "id": "media.audio.normalize",
+  "name": "Game Audio Loudness Normalizer (EBU R128)",
+  "nameAr": "موحد وموازن علو الصوتيات للألعاب",
+  "description": "Applies EBU R128 loudness normalization to an audio file via FFmpeg's loudnorm filter, targeting a chosen LUFS level.",
+  "descriptionAr": "تقوم هذه الأداة بتشغيل فلتر loudnorm الخاص بمحرك FFmpeg والمعتمد على معيار EBU R128 العالمي لقياس وتوحيد مستوى علو الصوت (Loudness) في ملف الصوت المدخل، بحيث يتم ضبط شدة الصوت لتطابق قيمة LUFS المستهدفة المختارة (مثل 16- أو 23- أو 14-)، مما يضمن توحيد مستوى الصوت بين كل ملفات المؤثرات أو الحوارات داخل اللعبة ومنع التفاوت المزعج بينها.",
+  "category": "معالجة الوسائط والأصول 🎨",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "ffmpeg.exe",
+    "argumentsTemplate": "-i \"${InputAudio}\" -af loudnorm=I=${TargetLUFS}:TP=-1.5:LRA=11 \"${OutputAudio}\" -y",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "InputAudio",
+      "label": "ملف الصوت المصدر",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "TargetLUFS",
+      "label": "مستوى العلو المستهدف LUFS",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "-16",
+      "options": [
+        "-14",
+        "-16",
+        "-23"
+      ]
+    },
+    {
+      "id": "OutputAudio",
+      "label": "ملف الصوت الناتج",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": "${InputAudio}_norm.wav"
+    }
+  ]
+}

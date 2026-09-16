@@ -1,0 +1,30 @@
+{
+  "id": "godot.gdscript.docgen",
+  "name": "GDScript Documentation Generator",
+  "nameAr": "مولد توثيق سكربتات جودو",
+  "description": "Scans all .gd script files in a project, extracts function signatures and doc comments, and compiles them into a formatted Markdown file.",
+  "descriptionAr": "تقوم هذه الأداة بفحص كل ملفات GDScript ذات الامتداد .gd داخل مجلد المشروع بشكل تكراري، واستخراج توقيعات الدوال (func) والتعليقات التوثيقية المرافقة لها (##)، ثم تجميع كل هذه المعلومات وتنسيقها داخل ملف Markdown واحد منظم حسب اسم كل سكربت، ليُستخدم كمرجع توثيقي سريع لواجهة برمجة المشروع دون الحاجة لفتح كل ملف يدوياً.",
+  "category": "Godot Engine 🎮",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"$out = @(); Get-ChildItem -Path '${ProjectPath}' -Filter '*.gd' -Recurse | ForEach-Object { $out += \\\"## $($_.Name)`n\\\"; Select-String -Path $_.FullName -Pattern '^func ' | ForEach-Object { $out += \\\"- $($_.Line.Trim())`n\\\" } }; $out | Out-File -FilePath '${OutputFile}' -Encoding utf8\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectPath",
+      "label": "مسار مشروع جودو",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "OutputFile",
+      "label": "ملف التوثيق الناتج",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": "${ProjectPath}\\API_DOCS.md"
+    }
+  ]
+}

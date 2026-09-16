@@ -1,0 +1,50 @@
+{
+  "id": "text.bulk.regex.replacer",
+  "name": "Bulk Translation Text Replacer",
+  "nameAr": "مستبدل مصطلحات التعريب المجمع",
+  "description": "Replaces a specified text or pattern across every matching file in a folder in a single batch operation.",
+  "descriptionAr": "تقوم هذه الأداة بالمرور على كل الملفات المطابقة لنمط الفلتر المحدد (مثل *.xml أو *.json) داخل المجلد الهدف بشكل تكراري، وتنفيذ عملية استبدال نصي لكل نص FindText الموجود داخل محتوى الملف واستبداله بالنص ReplaceText، ثم إعادة حفظ الملف بترميز UTF-8، وهي مفيدة جداً لتحديث مصطلح ترجمة معين بشكل جماعي عبر عشرات أو مئات ملفات الترجمة دفعة واحدة.",
+  "category": "معالجة الوسائط والأصول 🎨",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"Get-ChildItem -Path '${TargetDir}' -Filter '${FileFilter}' -Recurse | ForEach-Object { (Get-Content $_.FullName -Raw) -replace [regex]::Escape('${FindText}'), '${ReplaceText}' | Set-Content -Path $_.FullName -Encoding utf8 }\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "TargetDir",
+      "label": "المجلد الهدف",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "FileFilter",
+      "label": "فلتر الملفات",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "*.xml",
+      "options": [
+        "*.xml",
+        "*.json",
+        "*.txt",
+        "*.*"
+      ]
+    },
+    {
+      "id": "FindText",
+      "label": "النص المراد البحث عنه",
+      "type": "Text",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "ReplaceText",
+      "label": "النص البديل",
+      "type": "Text",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

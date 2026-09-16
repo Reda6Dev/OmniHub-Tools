@@ -1,0 +1,30 @@
+{
+  "id": "game.junction.symlink",
+  "name": "Game Mods Directory Junction Maker",
+  "nameAr": "صانع الروابط الصلبة لمجلدات المودات",
+  "description": "Creates an NTFS directory junction so a mods folder on an alternate drive appears inside the game folder without duplicating files.",
+  "descriptionAr": "تقوم هذه الأداة بتنفيذ أمر mklink /J لإنشاء وصلة مجلد صلبة (Directory Junction) بين مسار وهمي داخل مجلد اللعبة (LinkPath) ومجلد فعلي موجود على قرص آخر أو مسار مختلف (TargetPath)، مما يسمح بتخزين المودات أو الحفظ في مكان بديل مع بقاء اللعبة قادرة على الوصول إليها من مسارها الأصلي، دون الحاجة لنسخ الملفات فعلياً وبالتالي توفير مساحة تخزين كبيرة.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "cmd.exe",
+    "argumentsTemplate": "/c mklink /J \"${LinkPath}\" \"${TargetPath}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "LinkPath",
+      "label": "مسار الرابط داخل اللعبة",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "TargetPath",
+      "label": "المجلد الفعلي على القرص البديل",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

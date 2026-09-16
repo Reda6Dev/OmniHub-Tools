@@ -1,0 +1,41 @@
+{
+  "id": "godot.pck.packer",
+  "name": "Godot PCK Mod Packer",
+  "nameAr": "حازم ومستخرج حزم PCK لجودو",
+  "description": "Packs a folder of assets into a Godot .pck file, or extracts an existing .pck file back into a folder, using the Godot headless CLI.",
+  "descriptionAr": "تقوم هذه الأداة، بحسب الخيار المحدد في القائمة المنسدلة، إما بتشغيل محرك جودو بوضع Headless لتصدير محتويات مجلد المصدر وتجميعها داخل ملف حزمة واحد بصيغة PCK يستخدم لتوزيع المودات أو تحديثات المحتوى، أو بالاتجاه المعاكس فك حزمة ملف PCK موجود مسبقاً واستخراج محتوياته إلى مجلد على القرص للفحص أو التعديل.",
+  "category": "Godot Engine 🎮",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "godot.exe",
+    "argumentsTemplate": "--headless --path \"${SourcePath}\" --export-pack \"${Action}\" \"${PckFile}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "Action",
+      "label": "العملية",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "تجميع مجلد إلى PCK",
+      "options": [
+        "تجميع مجلد إلى PCK",
+        "استخراج ملف PCK إلى مجلد"
+      ]
+    },
+    {
+      "id": "SourcePath",
+      "label": "مجلد المصدر",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "PckFile",
+      "label": "ملف PCK",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

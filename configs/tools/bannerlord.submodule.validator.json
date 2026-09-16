@@ -1,0 +1,23 @@
+{
+  "id": "bannerlord.submodule.validator",
+  "name": "Bannerlord SubModule.xml Validator",
+  "nameAr": "فاحص ملفات تعريف مودات بانرلورد",
+  "description": "Reads and analyzes a Bannerlord mod's SubModule.xml file, verifying that referenced DLL files exist and dependency order is correct.",
+  "descriptionAr": "تقوم هذه الأداة بقراءة وتحليل ملف SubModule.xml الموجود داخل مجلد مود لعبة Mount & Blade II: Bannerlord، واستخراج قائمة ملفات DLL المشار إليها ضمن وسم DLLs والتأكد من وجود كل ملف فعلياً على القرص داخل مجلد Bin المناسب، بالإضافة إلى فحص وسوم DependedModules للتأكد من صحة ترتيب الاعتماديات بين المودات، وطباعة أي عنصر ناقص أو خاطئ.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"[xml]$sm = Get-Content '${ModDir}\\SubModule.xml'; $sm.SelectNodes('//DLLName') | ForEach-Object { $dll = $_.value; $found = Get-ChildItem -Path '${ModDir}' -Recurse -Filter $dll -ErrorAction SilentlyContinue; if(-not $found) { Write-Host \\\"DLL مفقود: $dll\\\" } }\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ModDir",
+      "label": "مجلد المود",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "git.stash.pop.manager",
+  "name": "Git Stash & Pop Manager",
+  "nameAr": "مدير حفظ واسترجاع تعديلات Git",
+  "description": "Executes a chosen Git stash operation (push or pop) inside the target repository to temporarily save or restore uncommitted changes.",
+  "descriptionAr": "تقوم هذه الأداة بتنفيذ أمر Git Stash المختار من القائمة المنسدلة داخل المستودع المحدد؛ فخيار stash push -u يقوم بحفظ كل التعديلات الحالية غير المعتمدة (بما فيها الملفات غير المتتبعة) جانباً في مخزن مؤقت وإعادة الفرع إلى حالته النظيفة، بينما خيار stash pop يقوم باسترجاع آخر تعديلات محفوظة وتطبيقها من جديد على الفرع الحالي.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"cd '${RepoDir}'; git ${Action}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "RepoDir",
+      "label": "مسار المستودع المحلي",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "Action",
+      "label": "العملية",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "stash push -u -m 'OmniHub auto stash'",
+      "options": [
+        "stash push -u -m 'OmniHub auto stash'",
+        "stash pop"
+      ]
+    }
+  ]
+}

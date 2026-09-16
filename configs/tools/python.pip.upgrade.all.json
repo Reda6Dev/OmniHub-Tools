@@ -1,0 +1,27 @@
+{
+  "id": "python.pip.upgrade.all",
+  "name": "Python Bulk Pip Packages Upgrader",
+  "nameAr": "مُحدّث مكتبات بايثون الشامل",
+  "description": "Fetches all outdated pip packages and upgrades every one of them in a single batch operation.",
+  "descriptionAr": "تقوم هذه الأداة بجلب قائمة كل حزم بايثون المثبتة والتي لديها إصدار أحدث متاح باستخدام pip list --outdated، ثم تمر على كل حزمة من هذه القائمة وتقوم بتحديثها تلقائياً عبر pip install --upgrade، مما يوفر وقتاً كبيراً مقارنة بتحديث كل حزمة يدوياً واحدة تلو الأخرى.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"if('${Confirm}' -eq 'تأكيد التحديث الشامل'){{ python -m pip list --outdated --format=freeze | ForEach-Object {{ python -m pip install --upgrade $_.Split('==')[0] }} }} else {{ Write-Host 'تم الإلغاء' }}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "Confirm",
+      "label": "تأكيد التحديث",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "تأكيد التحديث الشامل",
+      "options": [
+        "تأكيد التحديث الشامل",
+        "إلغاء"
+      ]
+    }
+  ]
+}

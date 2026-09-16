@@ -1,0 +1,34 @@
+{
+  "id": "text.json.formatter",
+  "name": "JSON Beautifier & Indentation Fixer",
+  "nameAr": "منسق ومصلح ملفات JSON",
+  "description": "Reads a JSON file and re-writes it with clean, standardized indentation and pure UTF-8 encoding.",
+  "descriptionAr": "تقوم هذه الأداة بقراءة محتوى ملف JSON المحدد وتحليله بنيوياً (Parsing) للتأكد من صحة صياغته، ثم إعادة طباعته وتنسيقه بمسافات بادئة (Indentation) موحدة حسب القيمة المختارة (2 أو 4 مسافات)، وحفظ الملف الناتج بترميز UTF-8 نقي دون أي رموز غريبة، مما يجعل الملف أسهل للقراءة والمراجعة والتحكم بالإصدارات عبر Git.",
+  "category": "معالجة الوسائط والأصول 🎨",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"$obj = Get-Content '${JsonFile}' -Raw | ConvertFrom-Json; $obj | ConvertTo-Json -Depth 100 | Set-Content -Path '${JsonFile}' -Encoding utf8\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "JsonFile",
+      "label": "ملف JSON المستهدف",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "Indent",
+      "label": "عدد مسافات التنسيق",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "2",
+      "options": [
+        "2",
+        "4"
+      ]
+    }
+  ]
+}

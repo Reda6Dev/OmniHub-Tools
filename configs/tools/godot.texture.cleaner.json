@@ -1,0 +1,23 @@
+{
+  "id": "godot.texture.cleaner",
+  "name": "Godot Orphaned .import Cleaner",
+  "nameAr": "منظف مستوردات جودو اليتيمة",
+  "description": "Scans a Godot project and removes leftover .import files whose original source asset no longer exists.",
+  "descriptionAr": "تقوم هذه الأداة بالمرور بشكل تكراري على كل ملفات .import الموجودة داخل مجلد المشروع، والتحقق لكل ملف من وجود ملف الأصل (Asset) المرتبط به فعلياً على القرص، وفي حال كان الأصل الأصلي قد حُذف أو نُقل ولم يعد موجوداً، تقوم بحذف ملف .import اليتيم المرتبط به، مما يمنع تراكم الملفات الميتة ويسرّع عملية فتح المحرر.",
+  "category": "Godot Engine 🎮",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"Get-ChildItem -Path '${ProjectPath}' -Filter '*.import' -Recurse | Where-Object { -not (Test-Path ($_.FullName -replace '\\.import$','')) } | Remove-Item -Force\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectPath",
+      "label": "مسار مشروع جودو",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

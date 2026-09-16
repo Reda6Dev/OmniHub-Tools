@@ -1,0 +1,23 @@
+{
+  "id": "git.merged.branches.cleaner",
+  "name": "Git Merged Branches Purger",
+  "nameAr": "منظف فروع Git المدمجة",
+  "description": "Finds all local branches already merged into the main line and deletes them, excluding protected branches.",
+  "descriptionAr": "تقوم هذه الأداة بفحص كل الفروع المحلية (Local Branches) داخل المستودع المحدد باستخدام git branch --merged، ثم استبعاد الفرع الحالي والفروع الرئيسية المحمية مثل master و main و dev، وحذف كل ما تبقى من فروع مدمجة بالفعل وغير مستخدمة، مما يحافظ على نظافة قائمة الفروع في المستودع.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"git -C '${RepoDir}' branch --merged | Where-Object { $_ -notmatch '^\\*|master|main|dev' } | ForEach-Object { git -C '${RepoDir}' branch -d $_.Trim() }\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "RepoDir",
+      "label": "مسار المستودع المحلي",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

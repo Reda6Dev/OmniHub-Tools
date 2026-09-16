@@ -1,0 +1,34 @@
+{
+  "id": "godot.mono.build",
+  "name": "Godot C# Headless Project Builder",
+  "nameAr": "باني مشاريع جودو C# بدون واجهة",
+  "description": "Builds the .NET solution of a Godot Mono/C# project directly via the dotnet CLI without opening the Godot editor.",
+  "descriptionAr": "تقوم هذه الأداة بتشغيل أمر dotnet build مباشرة على ملف الحل الخاص بمشروع جودو الذي يستخدم لغة C# (Godot Mono)، مع تحديد وضع البناء (Debug أو Release)، مما يسمح ببناء وتجميع كود اللعبة كخطوة مستقلة ضمن سلاسل أتمتة البناء (CI/CD) دون الحاجة لتشغيل محرر جودو كاملاً.",
+  "category": "Godot Engine 🎮",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "dotnet.exe",
+    "argumentsTemplate": "build \"${ProjectPath}\" -c ${Configuration}",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectPath",
+      "label": "مسار مشروع جودو",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "Configuration",
+      "label": "وضع البناء",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "Debug",
+      "options": [
+        "Debug",
+        "Release"
+      ]
+    }
+  ]
+}

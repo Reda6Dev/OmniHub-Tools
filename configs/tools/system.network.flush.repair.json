@@ -1,0 +1,27 @@
+{
+  "id": "system.network.flush.repair",
+  "name": "Network DNS Flush & Winsock Reset",
+  "nameAr": "مفرغ كاش DNS ومصلح اتصال الألعاب",
+  "description": "Flushes the local DNS resolver cache and resets the Winsock network stack to fix online multiplayer connectivity issues.",
+  "descriptionAr": "تقوم هذه الأداة بتنفيذ أمرين متتاليين لإصلاح مشاكل الاتصال الشائعة في الألعاب الجماعية عبر الإنترنت: الأمر الأول ipconfig /flushdns يقوم بتفريغ ذاكرة التخزين المؤقت لأسماء النطاقات (DNS Cache)، والأمر الثاني netsh winsock reset يقوم بإعادة ضبط مكونات Winsock المسؤولة عن اتصالات الشبكة على مستوى نظام التشغيل، وقد يتطلب إعادة تشغيل الجهاز لتفعيل التغييرات بالكامل.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"if('${Confirm}' -eq 'نعم، تفريغ الكاش وإعادة الضبط'){{ ipconfig /flushdns; netsh winsock reset }} else {{ Write-Host 'تم الإلغاء' }}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "Confirm",
+      "label": "تأكيد العملية",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "نعم، تفريغ الكاش وإعادة الضبط",
+      "options": [
+        "نعم، تفريغ الكاش وإعادة الضبط",
+        "إلغاء"
+      ]
+    }
+  ]
+}

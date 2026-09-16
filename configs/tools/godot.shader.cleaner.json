@@ -1,0 +1,23 @@
+{
+  "id": "godot.shader.cleaner",
+  "name": "Godot Shader Syntax Validator",
+  "nameAr": "فاحص صحة ملفات شيدر جودو",
+  "description": "Recursively scans all .gdshader files in a project and checks for syntax issues such as unbalanced braces.",
+  "descriptionAr": "تقوم هذه الأداة بالمرور بشكل تكراري على كل ملفات الشيدر ذات الامتداد .gdshader داخل مجلد المشروع، وإجراء فحص أساسي على بنية كل ملف للتأكد من تطابق عدد الأقواس المفتوحة مع المغلقة { } وعدم وجود أخطاء صياغية واضحة، وطباعة تقرير بأي ملف يحتوي على مشكلة محتملة لتسهيل تصحيحه قبل تشغيل اللعبة.",
+  "category": "Godot Engine 🎮",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"Get-ChildItem -Path '${ProjectPath}' -Filter '*.gdshader' -Recurse | ForEach-Object { $c = Get-Content $_.FullName -Raw; $open = ([regex]::Matches($c,'\\{')).Count; $close = ([regex]::Matches($c,'\\}')).Count; if($open -ne $close) { Write-Host \\\"مشكلة في: $($_.FullName)\\\" } }\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectPath",
+      "label": "مسار مشروع جودو",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

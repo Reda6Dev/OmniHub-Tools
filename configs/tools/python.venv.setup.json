@@ -1,0 +1,37 @@
+{
+  "id": "python.venv.setup",
+  "name": "Python Venv Creator & Setup",
+  "nameAr": "مُنشئ ومجهّز بيئات بايثون",
+  "description": "Creates a Python virtual environment in a project folder and optionally installs requirements.txt.",
+  "descriptionAr": "تقوم هذه الأداة بإنشاء بيئة عمل افتراضية (Virtual Environment) داخل مجلد المشروع المحدد باستخدام python -m venv، ثم تفعيلها وتحديث أداة pip إلى آخر إصدار، وفي حال تفعيل خيار InstallReqs ووجود ملف requirements.txt داخل المجلد، تقوم تلقائياً بتثبيت كل الاعتماديات المذكورة فيه.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"cd '${ProjectDir}'; python -m venv '${VenvName}'; & \\\"${ProjectDir}\\${VenvName}\\Scripts\\python.exe\\\" -m pip install --upgrade pip; if('${InstallReqs}' -eq 'true' -and (Test-Path '${ProjectDir}\\requirements.txt')) { & \\\"${ProjectDir}\\${VenvName}\\Scripts\\pip.exe\\\" install -r '${ProjectDir}\\requirements.txt' }\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectDir",
+      "label": "مجلد المشروع",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "VenvName",
+      "label": "اسم مجلد البيئة الافتراضية",
+      "type": "Text",
+      "required": true,
+      "defaultValue": ".venv"
+    },
+    {
+      "id": "InstallReqs",
+      "label": "تثبيت requirements.txt تلقائياً",
+      "type": "Boolean",
+      "required": true,
+      "defaultValue": "true"
+    }
+  ]
+}

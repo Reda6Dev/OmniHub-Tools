@@ -1,0 +1,42 @@
+{
+  "id": "media.video.extract.audio",
+  "name": "Video Audio Stream Extractor",
+  "nameAr": "مستخرج الصوت من مقاطع الفيديو",
+  "description": "Extracts the audio stream from a video file and converts it to the chosen output audio format via FFmpeg.",
+  "descriptionAr": "تقوم هذه الأداة باستخدام محرك FFmpeg لاستخراج مسار الصوت (Audio Stream) الموجود داخل ملف الفيديو المدخل بشكل منفصل عن الصورة، ثم تحويله وترميزه إلى صيغة الصوت المختارة من القائمة المنسدلة (ogg أو mp3 أو wav) بجودة عالية، وحفظه كملف صوتي مستقل، وهي مفيدة لاستخراج الموسيقى التصويرية أو المؤثرات الصوتية من مقاطع اللعب المسجلة.",
+  "category": "معالجة الوسائط والأصول 🎨",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "ffmpeg.exe",
+    "argumentsTemplate": "-i \"${InputVideo}\" -vn -acodec ${Format} \"${OutputAudio}\" -y",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "InputVideo",
+      "label": "ملف الفيديو المصدر",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "Format",
+      "label": "صيغة الصوت الناتج",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "ogg",
+      "options": [
+        "ogg",
+        "mp3",
+        "wav"
+      ]
+    },
+    {
+      "id": "OutputAudio",
+      "label": "ملف الصوت الناتج",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": "${InputVideo}.ogg"
+    }
+  ]
+}

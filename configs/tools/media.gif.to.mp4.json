@@ -1,0 +1,30 @@
+{
+  "id": "media.gif.to.mp4",
+  "name": "Animated GIF to Lightweight MP4",
+  "nameAr": "محول صور GIF إلى فيديو MP4 فائق الخفة",
+  "description": "Converts an animated GIF file into a highly compressed, web-friendly MP4 video using FFmpeg.",
+  "descriptionAr": "تقوم هذه الأداة باستخدام محرك FFmpeg لتحويل ملف الصورة المتحركة GIF المدخل إلى فيديو بصيغة MP4، مع ضبط خيار movflags faststart لتسريع بدء التشغيل عبر الويب، وتحويل تنسيق الألوان إلى yuv420p لضمان التوافق مع أغلب المشغلات، بالإضافة لضبط أبعاد الفيديو لتكون أرقاماً زوجية، مما ينتج ملفاً أصغر حجماً بكثير من ملف GIF الأصلي مع الحفاظ على جودة الحركة.",
+  "category": "معالجة الوسائط والأصول 🎨",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "ffmpeg.exe",
+    "argumentsTemplate": "-i \"${InputGif}\" -movflags faststart -pix_fmt yuv420p -vf \"scale=trunc(iw/2)*2:trunc(ih/2)*2\" \"${OutputMp4}\" -y",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "InputGif",
+      "label": "ملف GIF المصدر",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "OutputMp4",
+      "label": "ملف MP4 الناتج",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": "${InputGif}.mp4"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "dotnet.outdated.packages",
+  "name": ".NET Outdated Packages Reporter",
+  "nameAr": "كاشف حزم دوت نت القديمة",
+  "description": "Scans a .NET project or solution and generates a report of all NuGet packages with newer versions available.",
+  "descriptionAr": "تقوم هذه الأداة بتشغيل الأمر dotnet list package --outdated على المشروع أو ملف الحل المحدد، والذي يفحص كل حزم NuGet المستخدمة داخل المشروع ويقارن إصداراتها الحالية بأحدث الإصدارات المتوفرة على مستودع NuGet، ثم يطبع تقريراً مفصلاً بكل الحزم التي تحتاج إلى تحديث.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "dotnet.exe",
+    "argumentsTemplate": "list \"${ProjectDir}\" package --outdated",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectDir",
+      "label": "مسار المشروع أو الحل",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

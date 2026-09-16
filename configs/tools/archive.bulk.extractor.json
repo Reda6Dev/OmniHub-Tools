@@ -1,0 +1,23 @@
+{
+  "id": "archive.bulk.extractor",
+  "name": "Bulk Archives Multi-Folder Extractor",
+  "nameAr": "المفكك الجماعي للملفات المضغوطة",
+  "description": "Extracts every ZIP archive found in a folder, placing each archive's contents into its own dedicated subfolder.",
+  "descriptionAr": "تقوم هذه الأداة بالبحث عن كل ملفات الأرشيف بصيغة ZIP الموجودة مباشرة داخل المجلد المحدد، ولكل ملف أرشيف يتم إنشاء مجلد فرعي جديد يحمل نفس اسم الملف (بدون الامتداد)، ثم فك ضغط محتويات ذلك الأرشيف بالكامل داخل مجلده الفرعي الخاص، مما يمنع اختلاط محتويات الأرشيفات المتعددة ببعضها عند فك الضغط الجماعي.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"Get-ChildItem -Path '${TargetDir}' -Filter '*.zip' | ForEach-Object { $dest = Join-Path '${TargetDir}' $_.BaseName; Expand-Archive -Path $_.FullName -DestinationPath $dest -Force }\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "TargetDir",
+      "label": "المجلد الهدف",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}
