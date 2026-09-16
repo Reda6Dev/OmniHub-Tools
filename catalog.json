@@ -428,6 +428,127 @@
       "author": "Reda6Dev",
       "category": "معالجة الوسائط والأصول 🎨",
       "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/text.json.formatter.json"
+    },
+    {
+      "id": "git.repo.size.analyzer",
+      "name": "Git Large Objects & Size Analyzer",
+      "nameAr": "فاحص كائنات وحجم مستودع Git",
+      "description": "Scans a Git repository's packed objects and reports the top 10 largest files inflating the .git folder's size.",
+      "descriptionAr": "تقوم هذه الأداة بتشغيل أمر git verify-pack -v على ملف الحزمة (Pack File) الرئيسي داخل مجلد .git للمستودع المحدد، ثم تحليل الناتج عبر PowerShell لترتيب الكائنات (Blobs) تنازلياً حسب الحجم، وطباعة قائمة بأكبر 10 ملفات تساهم في تضخم حجم المستودع، مما يساعد المطورين على تحديد الملفات الكبيرة التي يجب استبعادها أو نقلها إلى Git LFS.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/git.repo.size.analyzer.json"
+    },
+    {
+      "id": "csharp.code.metrics",
+      "name": "C# Lines of Code Counter",
+      "nameAr": "حاسب أسطر كود مشاريع C#",
+      "description": "Recursively scans all .cs files in a project and reports the total number of code lines and blank lines.",
+      "descriptionAr": "تقوم هذه الأداة بالمرور بشكل تكراري على كل ملفات C# ذات الامتداد .cs داخل مجلد المشروع المحدد، وحساب إجمالي عدد الأسطر الفعلية التي تحتوي على كود، بالإضافة إلى عدد الأسطر الفارغة بشكل منفصل، ثم طباعة تقرير إحصائي شامل، مما يعطي المطور فكرة سريعة عن حجم المشروع البرمجي وتوزيع الكود بداخله.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/csharp.code.metrics.json"
+    },
+    {
+      "id": "python.format.autopep8",
+      "name": "Python PEP8 Auto-Formatter",
+      "nameAr": "منسق سكربتات بايثون الآلي",
+      "description": "Automatically reformats a Python script in-place to comply with the PEP8 style guide using autopep8.",
+      "descriptionAr": "تقوم هذه الأداة بتشغيل أداة autopep8 على ملف سكربت بايثون المحدد باستخدام الخيارين --in-place لحفظ التعديلات مباشرة داخل نفس الملف، و --aggressive لتطبيق مستوى أعلى من التصحيحات التلقائية مثل إعادة ترتيب المسافات وتصحيح طول الأسطر وتنسيق الاستيرادات، بما يجعل الكود متوافقاً مع معيار PEP8 القياسي للغة بايثون دون تدخل يدوي.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/python.format.autopep8.json"
+    },
+    {
+      "id": "godot.find.unused.assets",
+      "name": "Godot Unused Assets Finder",
+      "nameAr": "كاشف أصول جودو غير المستخدمة",
+      "description": "Scans a Godot project's asset files and cross-references them against .tscn and .gd files, listing assets never referenced anywhere.",
+      "descriptionAr": "تقوم هذه الأداة بجمع قائمة بكل ملفات الأصول (الصور والأصوات والنماذج) الموجودة داخل مجلد المشروع، ثم فحص محتوى كل ملفات المشاهد .tscn وسكربتات .gd بحثاً عن أي إشارة لاسم كل أصل، وفي حال لم يُعثر على أي مرجع لأصل معين في كامل المشروع، يتم إدراجه ضمن قائمة الأصول اليتيمة غير المستخدمة، مما يساعد على تنظيف المشروع وتقليل حجم التصدير النهائي.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "Godot Engine 🎮",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/godot.find.unused.assets.json"
+    },
+    {
+      "id": "godot.export.templates.cleaner",
+      "name": "Godot Old Export Templates Purger",
+      "nameAr": "منظف قوالب تصدير جودو القديمة",
+      "description": "Scans the Godot export templates folder and deletes older, unused version subfolders to free up disk space.",
+      "descriptionAr": "تقوم هذه الأداة بفحص مسار قوالب التصدير الخاص بمحرك جودو %APPDATA%\\Godot\\export_templates، والذي يحتوي عادة على مجلد فرعي منفصل لكل إصدار من إصدارات المحرك تم تثبيت قوالب تصديره سابقاً، ثم تحديد وحذف مجلدات الإصدارات القديمة (مع الإبقاء على أحدث إصدار)، حيث أن هذه القوالب قد تشغل عدة غيغابايتات من مساحة القرص بمرور الوقت مع تراكم الإصدارات.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "Godot Engine 🎮",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/godot.export.templates.cleaner.json"
+    },
+    {
+      "id": "godot.project.uid.repair",
+      "name": "Godot 4 UID References Validator",
+      "nameAr": "فاحص مراجع UID لمشاريع جودو",
+      "description": "Scans Godot 4 .uid files and .import metadata for broken or mismatched references and re-syncs them where possible.",
+      "descriptionAr": "تقوم هذه الأداة بفحص كل ملفات .uid وملفات .import الموجودة داخل مشروع جودو 4، وهي الملفات المسؤولة عن ربط الأصول بمعرفات فريدة (Unique Identifiers)، والتأكد من أن كل معرف UID مشار إليه فعلياً يقابله ملف أصل موجود على القرص، وطباعة تقرير بأي مراجع معطوبة أو غير متطابقة تحتاج لإعادة استيراد يدوي داخل المحرر.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "Godot Engine 🎮",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/godot.project.uid.repair.json"
+    },
+    {
+      "id": "game.firewall.rule.manager",
+      "name": "Game Executable Firewall Permitter",
+      "nameAr": "مُفوِّض ألعاب جدار حماية ويندوز",
+      "description": "Adds an inbound Windows Firewall allow rule for a specific game executable to prevent multiplayer/online connectivity blocks.",
+      "descriptionAr": "تقوم هذه الأداة بتنفيذ أمر netsh advfirewall لإضافة قاعدة سماح جديدة (Allow Rule) في جدار حماية ويندوز للاتصالات الواردة (Inbound) الخاصة بالملف التنفيذي المحدد، مع تسمية القاعدة بالاسم المدخل، مما يحل المشاكل الشائعة المتعلقة بحظر الجدار الناري لاتصالات الألعاب الجماعية عبر الشبكة المحلية أو الإنترنت.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/game.firewall.rule.manager.json"
+    },
+    {
+      "id": "game.resolution.config.fixer",
+      "name": "Game Config Resolution Overrider",
+      "nameAr": "مصلح دقة شاشة الألعاب",
+      "description": "Replaces resolution width/height values inside a game's config file with new values, after creating an instant backup.",
+      "descriptionAr": "تقوم هذه الأداة أولاً بأخذ نسخة احتياطية فورية من ملف الإعدادات المدخل بإضافة لاحقة .bak قبل أي تعديل، ثم تبحث داخل محتوى الملف عن أنماط شائعة لقيم الدقة مثل ResX و ResY أو Resolution وتستبدلها بالقيم الجديدة المدخلة للعرض والارتفاع، وهي مفيدة جداً لإصلاح ألعاب تعلق على دقة شاشة غير مدعومة وتمنع فتح قائمة الإعدادات للتصحيح اليدوي.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/game.resolution.config.fixer.json"
+    },
+    {
+      "id": "system.empty.folders.nuker",
+      "name": "Empty Directories Purger",
+      "nameAr": "منظف المجلدات الفارغة الشامل",
+      "description": "Recursively scans a directory and deletes every empty subfolder found within it.",
+      "descriptionAr": "تقوم هذه الأداة بالفحص التكراري (Recursive) لكل المجلدات الفرعية الموجودة داخل المسار المحدد، والتحقق من كل مجلد فيما إذا كان فارغاً تماماً من أي ملفات أو مجلدات فرعية أخرى، وفي حال كان كذلك يتم حذفه، وتكرر هذه العملية عدة مرات لضمان حذف المجلدات التي أصبحت فارغة بعد حذف مجلداتها الفرعية، مما ينظف بنية المجلدات المتبقية من عمليات تثبيت أو حذف سابقة.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/system.empty.folders.nuker.json"
+    },
+    {
+      "id": "media.image.resize.bulk",
+      "name": "Bulk Image Resizer",
+      "nameAr": "مغيّر أبعاد الصور الجماعي",
+      "description": "Resizes every image in a folder to a chosen resolution in a single batch operation via ImageMagick.",
+      "descriptionAr": "تقوم هذه الأداة بالمرور على كل ملفات الصور الموجودة داخل مجلد الإدخال المحدد، وتغيير أبعاد كل صورة منها لتطابق المقاس المختار من القائمة المنسدلة (مثل 512x512 أو 1920x1080) باستخدام محرك ImageMagick، ثم حفظ النسخة المعدلة داخل مجلد الإخراج المحدد مع الحفاظ على الاسم الأصلي للملف، وهي مفيدة جداً لتوحيد مقاسات أصول اللعبة أو تجهيز صور مصغرة (Thumbnails) دفعة واحدة.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "معالجة الوسائط والأصول 🎨",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/media.image.resize.bulk.json"
+    },
+    {
+      "id": "media.audio.trim.silence",
+      "name": "Audio Auto Silence Trimmer",
+      "nameAr": "قاطع الصمت التلقائي للصوتيات",
+      "description": "Automatically detects and trims silent segments from the beginning and end of an audio file using FFmpeg.",
+      "descriptionAr": "تقوم هذه الأداة باستخدام محرك FFmpeg وفلتر silenceremove مرتين متتاليتين (مع عكس اتجاه الملف areverse بينهما) لاكتشاف وقص أي فترات صمت زائدة موجودة في بداية ونهاية ملف الصوت المدخل، بناءً على عتبة حساسية قدرها 50- ديسيبل، مما ينتج ملف صوت نظيف يبدأ وينتهي مباشرة مع المحتوى الفعلي دون فراغات صامتة، وهو مفيد لتجهيز المؤثرات الصوتية والحوارات داخل الألعاب.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "معالجة الوسائط والأصول 🎨",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/media.audio.trim.silence.json"
     }
   ]
 }
