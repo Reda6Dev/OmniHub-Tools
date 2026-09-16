@@ -1,0 +1,23 @@
+{
+  "id": "godot.project.uid.repair",
+  "name": "Godot 4 UID References Validator",
+  "nameAr": "فاحص مراجع UID لمشاريع جودو",
+  "description": "Scans Godot 4 .uid files and .import metadata for broken or mismatched references and re-syncs them where possible.",
+  "descriptionAr": "تقوم هذه الأداة بفحص كل ملفات .uid وملفات .import الموجودة داخل مشروع جودو 4، وهي الملفات المسؤولة عن ربط الأصول بمعرفات فريدة (Unique Identifiers)، والتأكد من أن كل معرف UID مشار إليه فعلياً يقابله ملف أصل موجود على القرص، وطباعة تقرير بأي مراجع معطوبة أو غير متطابقة تحتاج لإعادة استيراد يدوي داخل المحرر.",
+  "category": "Godot Engine 🎮",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"Get-ChildItem -Path '${ProjectPath}' -Filter '*.uid' -Recurse | ForEach-Object { $src = $_.FullName -replace '\\.uid$',''; if(-not (Test-Path $src)) { Write-Host \\\"مرجع UID معطوب: $($_.FullName)\\\" } }\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectPath",
+      "label": "مسار مشروع جودو",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

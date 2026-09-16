@@ -1,0 +1,30 @@
+{
+  "id": "game.firewall.rule.manager",
+  "name": "Game Executable Firewall Permitter",
+  "nameAr": "مُفوِّض ألعاب جدار حماية ويندوز",
+  "description": "Adds an inbound Windows Firewall allow rule for a specific game executable to prevent multiplayer/online connectivity blocks.",
+  "descriptionAr": "تقوم هذه الأداة بتنفيذ أمر netsh advfirewall لإضافة قاعدة سماح جديدة (Allow Rule) في جدار حماية ويندوز للاتصالات الواردة (Inbound) الخاصة بالملف التنفيذي المحدد، مع تسمية القاعدة بالاسم المدخل، مما يحل المشاكل الشائعة المتعلقة بحظر الجدار الناري لاتصالات الألعاب الجماعية عبر الشبكة المحلية أو الإنترنت.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "cmd.exe",
+    "argumentsTemplate": "/c netsh advfirewall firewall add rule name=\"${RuleName}\" dir=in action=allow program=\"${ExePath}\" enable=yes",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ExePath",
+      "label": "مسار الملف التنفيذي للعبة",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "RuleName",
+      "label": "اسم القاعدة",
+      "type": "Text",
+      "required": true,
+      "defaultValue": "OmniHub Game Rule"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "system.empty.folders.nuker",
+  "name": "Empty Directories Purger",
+  "nameAr": "منظف المجلدات الفارغة الشامل",
+  "description": "Recursively scans a directory and deletes every empty subfolder found within it.",
+  "descriptionAr": "تقوم هذه الأداة بالفحص التكراري (Recursive) لكل المجلدات الفرعية الموجودة داخل المسار المحدد، والتحقق من كل مجلد فيما إذا كان فارغاً تماماً من أي ملفات أو مجلدات فرعية أخرى، وفي حال كان كذلك يتم حذفه، وتكرر هذه العملية عدة مرات لضمان حذف المجلدات التي أصبحت فارغة بعد حذف مجلداتها الفرعية، مما ينظف بنية المجلدات المتبقية من عمليات تثبيت أو حذف سابقة.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"do { $empty = Get-ChildItem -Path '${TargetDir}' -Recurse -Directory | Where-Object { (Get-ChildItem $_.FullName -Force | Measure-Object).Count -eq 0 }; $empty | Remove-Item -Force -Recurse } while ($empty.Count -gt 0)\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "TargetDir",
+      "label": "المجلد الهدف",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

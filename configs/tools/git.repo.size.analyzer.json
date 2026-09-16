@@ -1,0 +1,23 @@
+{
+  "id": "git.repo.size.analyzer",
+  "name": "Git Large Objects & Size Analyzer",
+  "nameAr": "فاحص كائنات وحجم مستودع Git",
+  "description": "Scans a Git repository's packed objects and reports the top 10 largest files inflating the .git folder's size.",
+  "descriptionAr": "تقوم هذه الأداة بتشغيل أمر git verify-pack -v على ملف الحزمة (Pack File) الرئيسي داخل مجلد .git للمستودع المحدد، ثم تحليل الناتج عبر PowerShell لترتيب الكائنات (Blobs) تنازلياً حسب الحجم، وطباعة قائمة بأكبر 10 ملفات تساهم في تضخم حجم المستودع، مما يساعد المطورين على تحديد الملفات الكبيرة التي يجب استبعادها أو نقلها إلى Git LFS.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"cd '${RepoDir}'; $pack = Get-ChildItem -Path '.git\\objects\\pack' -Filter '*.idx' | Select-Object -First 1; git verify-pack -v $pack.FullName | Sort-Object { [long]($_ -split ' ')[2] } -Descending | Select-Object -First 10\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "RepoDir",
+      "label": "مسار المستودع المحلي",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

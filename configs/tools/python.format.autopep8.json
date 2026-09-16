@@ -1,0 +1,23 @@
+{
+  "id": "python.format.autopep8",
+  "name": "Python PEP8 Auto-Formatter",
+  "nameAr": "منسق سكربتات بايثون الآلي",
+  "description": "Automatically reformats a Python script in-place to comply with the PEP8 style guide using autopep8.",
+  "descriptionAr": "تقوم هذه الأداة بتشغيل أداة autopep8 على ملف سكربت بايثون المحدد باستخدام الخيارين --in-place لحفظ التعديلات مباشرة داخل نفس الملف، و --aggressive لتطبيق مستوى أعلى من التصحيحات التلقائية مثل إعادة ترتيب المسافات وتصحيح طول الأسطر وتنسيق الاستيرادات، بما يجعل الكود متوافقاً مع معيار PEP8 القياسي للغة بايثون دون تدخل يدوي.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "python.exe",
+    "argumentsTemplate": "-m autopep8 --in-place --aggressive \"${ScriptPath}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ScriptPath",
+      "label": "مسار سكربت بايثون",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "game.resolution.config.fixer",
+  "name": "Game Config Resolution Overrider",
+  "nameAr": "مصلح دقة شاشة الألعاب",
+  "description": "Replaces resolution width/height values inside a game's config file with new values, after creating an instant backup.",
+  "descriptionAr": "تقوم هذه الأداة أولاً بأخذ نسخة احتياطية فورية من ملف الإعدادات المدخل بإضافة لاحقة .bak قبل أي تعديل، ثم تبحث داخل محتوى الملف عن أنماط شائعة لقيم الدقة مثل ResX و ResY أو Resolution وتستبدلها بالقيم الجديدة المدخلة للعرض والارتفاع، وهي مفيدة جداً لإصلاح ألعاب تعلق على دقة شاشة غير مدعومة وتمنع فتح قائمة الإعدادات للتصحيح اليدوي.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"Copy-Item '${ConfigFile}' '${ConfigFile}.bak' -Force; (Get-Content '${ConfigFile}' -Raw) -replace 'ResX\\s*=\\s*\\d+','ResX=${Width}' -replace 'ResY\\s*=\\s*\\d+','ResY=${Height}' -replace 'Resolution\\s*=\\s*\\d+x\\d+',\\\"Resolution=${Width}x${Height}\\\" | Set-Content '${ConfigFile}' -Encoding utf8\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ConfigFile",
+      "label": "ملف إعدادات اللعبة",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "Width",
+      "label": "العرض",
+      "type": "Text",
+      "required": true,
+      "defaultValue": "1920"
+    },
+    {
+      "id": "Height",
+      "label": "الارتفاع",
+      "type": "Text",
+      "required": true,
+      "defaultValue": "1080"
+    }
+  ]
+}

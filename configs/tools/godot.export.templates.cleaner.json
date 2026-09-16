@@ -1,0 +1,27 @@
+{
+  "id": "godot.export.templates.cleaner",
+  "name": "Godot Old Export Templates Purger",
+  "nameAr": "منظف قوالب تصدير جودو القديمة",
+  "description": "Scans the Godot export templates folder and deletes older, unused version subfolders to free up disk space.",
+  "descriptionAr": "تقوم هذه الأداة بفحص مسار قوالب التصدير الخاص بمحرك جودو %APPDATA%\\Godot\\export_templates، والذي يحتوي عادة على مجلد فرعي منفصل لكل إصدار من إصدارات المحرك تم تثبيت قوالب تصديره سابقاً، ثم تحديد وحذف مجلدات الإصدارات القديمة (مع الإبقاء على أحدث إصدار)، حيث أن هذه القوالب قد تشغل عدة غيغابايتات من مساحة القرص بمرور الوقت مع تراكم الإصدارات.",
+  "category": "Godot Engine 🎮",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"if('${Confirm}' -eq 'تأكيد حذف القوالب القديمة'){{ $dirs = Get-ChildItem -Path \\\"$env:APPDATA\\Godot\\export_templates\\\" -Directory | Sort-Object LastWriteTime -Descending; $dirs | Select-Object -Skip 1 | Remove-Item -Recurse -Force }} else {{ Write-Host 'تم الإلغاء' }}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "Confirm",
+      "label": "تأكيد الحذف",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "تأكيد حذف القوالب القديمة",
+      "options": [
+        "تأكيد حذف القوالب القديمة",
+        "إلغاء"
+      ]
+    }
+  ]
+}

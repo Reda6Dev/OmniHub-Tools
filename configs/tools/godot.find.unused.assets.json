@@ -1,0 +1,23 @@
+{
+  "id": "godot.find.unused.assets",
+  "name": "Godot Unused Assets Finder",
+  "nameAr": "كاشف أصول جودو غير المستخدمة",
+  "description": "Scans a Godot project's asset files and cross-references them against .tscn and .gd files, listing assets never referenced anywhere.",
+  "descriptionAr": "تقوم هذه الأداة بجمع قائمة بكل ملفات الأصول (الصور والأصوات والنماذج) الموجودة داخل مجلد المشروع، ثم فحص محتوى كل ملفات المشاهد .tscn وسكربتات .gd بحثاً عن أي إشارة لاسم كل أصل، وفي حال لم يُعثر على أي مرجع لأصل معين في كامل المشروع، يتم إدراجه ضمن قائمة الأصول اليتيمة غير المستخدمة، مما يساعد على تنظيف المشروع وتقليل حجم التصدير النهائي.",
+  "category": "Godot Engine 🎮",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"$assets = Get-ChildItem -Path '${ProjectPath}' -Include *.png,*.jpg,*.ogg,*.wav,*.glb -Recurse -File; $refs = Get-ChildItem -Path '${ProjectPath}' -Include *.tscn,*.gd -Recurse -File | Get-Content -Raw; foreach($a in $assets){{ if($refs -notmatch [regex]::Escape($a.Name)) {{ Write-Host \\\"غير مستخدم: $($a.FullName)\\\" }} }}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectPath",
+      "label": "مسار مشروع جودو",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

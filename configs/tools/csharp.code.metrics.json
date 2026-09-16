@@ -1,0 +1,23 @@
+{
+  "id": "csharp.code.metrics",
+  "name": "C# Lines of Code Counter",
+  "nameAr": "حاسب أسطر كود مشاريع C#",
+  "description": "Recursively scans all .cs files in a project and reports the total number of code lines and blank lines.",
+  "descriptionAr": "تقوم هذه الأداة بالمرور بشكل تكراري على كل ملفات C# ذات الامتداد .cs داخل مجلد المشروع المحدد، وحساب إجمالي عدد الأسطر الفعلية التي تحتوي على كود، بالإضافة إلى عدد الأسطر الفارغة بشكل منفصل، ثم طباعة تقرير إحصائي شامل، مما يعطي المطور فكرة سريعة عن حجم المشروع البرمجي وتوزيع الكود بداخله.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"$files = Get-ChildItem -Path '${ProjectDir}' -Filter '*.cs' -Recurse; $total=0; $blank=0; foreach($f in $files){{ $lines = Get-Content $f.FullName; $total += $lines.Count; $blank += ($lines | Where-Object { $_.Trim() -eq '' }).Count }}; Write-Host \\\"إجمالي الأسطر: $total | الأسطر الفارغة: $blank | ملفات .cs: $($files.Count)\\\"\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectDir",
+      "label": "مجلد المشروع",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

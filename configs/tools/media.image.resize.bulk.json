@@ -1,0 +1,43 @@
+{
+  "id": "media.image.resize.bulk",
+  "name": "Bulk Image Resizer",
+  "nameAr": "مغيّر أبعاد الصور الجماعي",
+  "description": "Resizes every image in a folder to a chosen resolution in a single batch operation via ImageMagick.",
+  "descriptionAr": "تقوم هذه الأداة بالمرور على كل ملفات الصور الموجودة داخل مجلد الإدخال المحدد، وتغيير أبعاد كل صورة منها لتطابق المقاس المختار من القائمة المنسدلة (مثل 512x512 أو 1920x1080) باستخدام محرك ImageMagick، ثم حفظ النسخة المعدلة داخل مجلد الإخراج المحدد مع الحفاظ على الاسم الأصلي للملف، وهي مفيدة جداً لتوحيد مقاسات أصول اللعبة أو تجهيز صور مصغرة (Thumbnails) دفعة واحدة.",
+  "category": "معالجة الوسائط والأصول 🎨",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "magick.exe",
+    "argumentsTemplate": "mogrify -path \"${OutputDir}\" -resize ${Dimensions} \"${InputDir}\\*.*\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "InputDir",
+      "label": "مجلد الصور المصدر",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "Dimensions",
+      "label": "الأبعاد الجديدة",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "512x512",
+      "options": [
+        "256x256",
+        "512x512",
+        "1024x1024",
+        "1920x1080"
+      ]
+    },
+    {
+      "id": "OutputDir",
+      "label": "مجلد الإخراج",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

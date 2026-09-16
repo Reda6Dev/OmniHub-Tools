@@ -1,0 +1,30 @@
+{
+  "id": "media.audio.trim.silence",
+  "name": "Audio Auto Silence Trimmer",
+  "nameAr": "قاطع الصمت التلقائي للصوتيات",
+  "description": "Automatically detects and trims silent segments from the beginning and end of an audio file using FFmpeg.",
+  "descriptionAr": "تقوم هذه الأداة باستخدام محرك FFmpeg وفلتر silenceremove مرتين متتاليتين (مع عكس اتجاه الملف areverse بينهما) لاكتشاف وقص أي فترات صمت زائدة موجودة في بداية ونهاية ملف الصوت المدخل، بناءً على عتبة حساسية قدرها 50- ديسيبل، مما ينتج ملف صوت نظيف يبدأ وينتهي مباشرة مع المحتوى الفعلي دون فراغات صامتة، وهو مفيد لتجهيز المؤثرات الصوتية والحوارات داخل الألعاب.",
+  "category": "معالجة الوسائط والأصول 🎨",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "ffmpeg.exe",
+    "argumentsTemplate": "-i \"${InputAudio}\" -af silenceremove=start_periods=1:start_duration=0.1:start_threshold=-50dB:detection=peak,areverse,silenceremove=start_periods=1:start_duration=0.1:start_threshold=-50dB:detection=peak,areverse \"${OutputAudio}\" -y",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "InputAudio",
+      "label": "ملف الصوت المصدر",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "OutputAudio",
+      "label": "ملف الصوت الناتج",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": "${InputAudio}_trimmed.wav"
+    }
+  ]
+}
