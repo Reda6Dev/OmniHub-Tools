@@ -1,0 +1,23 @@
+{
+  "id": "game.mod.unblocker",
+  "name": "Downloaded Mod & DLL Unblocker",
+  "nameAr": "فاك حظر مودات وملفات DLL المنزّلة",
+  "description": "Removes the Windows 'Zone.Identifier' block attribute from all files inside a mods folder.",
+  "descriptionAr": "تقوم هذه الأداة بالمرور على كافة الملفات الموجودة داخل مجلد المودات المحدد بشكل تكراري (Recursive)، وتنفيذ أمر Unblock-File على كل ملف لإزالة العلامة الأمنية Zone.Identifier التي يضيفها ويندوز تلقائياً للملفات المنزّلة من الإنترنت، والتي غالباً ما تمنع تحميل ملفات DLL أو المودات بشكل صحيح داخل اللعبة.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"Get-ChildItem -Path '{ModDirectory}' -Recurse -File | Unblock-File\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ModDirectory",
+      "label": "مجلد المودات",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

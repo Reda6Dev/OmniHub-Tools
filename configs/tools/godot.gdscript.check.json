@@ -1,0 +1,23 @@
+{
+  "id": "godot.gdscript.check",
+  "name": "GDScript Static Code Checker",
+  "nameAr": "فاحص أخطاء GDScript الساكن",
+  "description": "Statically checks all GDScript files in a project for syntax errors without launching the full editor.",
+  "descriptionAr": "تقوم هذه الأداة بتشغيل محرك جودو بوضع Headless مع المعامل --check-only، حيث يقوم المحرك بفحص جميع ملفات GDScript الموجودة في المشروع بحثاً عن أخطاء بنيوية أو لغوية (Syntax Errors) وطباعتها في سجل الإخراج، دون الحاجة لفتح واجهة المحرر الكاملة، مما يسرّع عملية اكتشاف الأخطاء قبل التشغيل الفعلي.",
+  "category": "Godot Engine 🎮",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "godot.exe",
+    "argumentsTemplate": "--headless --path \"{ProjectPath}\" --check-only",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectPath",
+      "label": "مسار مشروع جودو",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

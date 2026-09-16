@@ -1,0 +1,30 @@
+{
+  "id": "game.xml.localization.diff",
+  "name": "XML Mod Localization Diff Checker",
+  "nameAr": "فاحص فروقات تعريب ملفات XML",
+  "description": "Compares an original localization XML file against a translated one and reports missing or extra keys.",
+  "descriptionAr": "تقوم هذه الأداة بمقارنة ملف الترجمة الأصلي (الإنجليزي عادةً) مع ملف الترجمة المستهدف كلاهما بصيغة XML، واستخراج جميع المفاتيح (Keys) الموجودة في كل ملف، ثم عرض قائمة بالمفاتيح المفقودة من ملف الترجمة والمفاتيح الزائدة غير الموجودة في الأصل، مما يساعد فرق تعريب المودات على اكتشاف النصوص الناقصة بسرعة.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"[xml]$base=Get-Content '{BaseFile}'; [xml]$target=Get-Content '{TargetFile}'; $baseKeys=$base.SelectNodes('//*[@id]')|%{{$_.id}}; $targetKeys=$target.SelectNodes('//*[@id]')|%{{$_.id}}; Compare-Object $baseKeys $targetKeys\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "BaseFile",
+      "label": "ملف الترجمة الأصلي",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "TargetFile",
+      "label": "ملف الترجمة المستهدف",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

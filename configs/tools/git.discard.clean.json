@@ -1,0 +1,23 @@
+{
+  "id": "git.discard.clean",
+  "name": "Git Discard & Clean",
+  "nameAr": "إلغاء التعديلات والتنظيف الكامل",
+  "description": "Discards all uncommitted changes and removes untracked files, resetting to the last clean commit.",
+  "descriptionAr": "تقوم هذه الأداة بتنفيذ الأمرين git reset --hard و git clean -fd معاً، حيث يقوم الأول بإلغاء جميع التعديلات غير المعتمدة (Uncommitted) والرجوع لآخر Commit نظيف، بينما يقوم الثاني بحذف كل الملفات والمجلدات غير المتتبعة (Untracked) من مجلد المشروع، وهي عملية لا يمكن التراجع عنها فيجب الحذر عند استخدامها.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"cd '{RepoDir}'; git reset --hard; git clean -fd\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "RepoDir",
+      "label": "مسار المستودع المحلي",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

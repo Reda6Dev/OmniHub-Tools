@@ -1,0 +1,42 @@
+{
+  "id": "godot.headless.export",
+  "name": "Godot Headless Multi-Platform Exporter",
+  "nameAr": "مُصدِّر جودو التلقائي متعدد المنصات",
+  "description": "Exports a Godot project without opening the editor UI, using a chosen export preset.",
+  "descriptionAr": "تقوم هذه الأداة بتشغيل محرك جودو بوضع Headless (بدون واجهة رسومية) باستخدام المعامل --export-release، وتصدير المشروع تلقائياً وفق القالب (Preset) المحدد مسبقاً في ملف export_presets.cfg الخاص بالمشروع، مما يسمح بأتمتة عملية البناء والتصدير لعدة منصات دون تدخل يدوي.",
+  "category": "Godot Engine 🎮",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "godot.exe",
+    "argumentsTemplate": "--headless --path \"{ProjectPath}\" --export-release \"{Preset}\" \"{OutputPath}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectPath",
+      "label": "مسار مشروع جودو",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "Preset",
+      "label": "قالب التصدير",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "Windows Desktop",
+      "options": [
+        "Windows Desktop",
+        "Linux/X11",
+        "Web"
+      ]
+    },
+    {
+      "id": "OutputPath",
+      "label": "مسار ملف الإخراج",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "godot.project.backup",
+  "name": "Godot Project Version Migrator",
+  "nameAr": "أداة النسخ الاحتياطي قبل ترقية إصدار جودو",
+  "description": "Creates a compressed backup archive of a Godot project before performing a version upgrade.",
+  "descriptionAr": "تقوم هذه الأداة بأخذ نسخة احتياطية كاملة ومضغوطة (ZIP) لمجلد مشروع جودو بالكامل، مع إضافة الطابع الزمني لاسم الملف الناتج، وذلك قبل الشروع في عملية ترقية إصدار المحرك، لضمان إمكانية الرجوع إلى النسخة الأصلية في حال فشل توافق المشروع مع الإصدار الجديد.",
+  "category": "Godot Engine 🎮",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"$stamp = Get-Date -Format yyyyMMdd_HHmmss; Compress-Archive -Path '{ProjectPath}\\*' -DestinationPath \\\"{ProjectPath}_backup_$stamp.zip\\\"\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectPath",
+      "label": "مسار مشروع جودو",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

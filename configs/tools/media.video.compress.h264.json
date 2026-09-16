@@ -1,0 +1,30 @@
+{
+  "id": "media.video.compress.h264",
+  "name": "Video Compressor H.264",
+  "nameAr": "ضاغط الفيديو بصيغة H.264",
+  "description": "Compresses game trailer/gameplay videos into a lightweight, high-quality H.264 MP4 file.",
+  "descriptionAr": "تقوم هذه الأداة باستخدام محرك FFmpeg لإعادة ترميز ملف الفيديو المدخل باستخدام مرمّز H.264 (libx264) وإخراجه بصيغة MP4، مع ضبط إعدادات معدل الجودة (CRF) لتحقيق أفضل توازن ممكن بين جودة الصورة المرئية للعروض ومقاطع اللعب وبين تقليل حجم الملف الناتج قدر الإمكان.",
+  "category": "معالجة الوسائط والأصول 🎨",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "ffmpeg.exe",
+    "argumentsTemplate": "-i \"{InputVideo}\" -c:v libx264 -crf 23 -preset medium -c:a aac -b:a 128k \"{OutputVideo}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "InputVideo",
+      "label": "ملف الفيديو المصدر",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "OutputVideo",
+      "label": "ملف الفيديو الناتج",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

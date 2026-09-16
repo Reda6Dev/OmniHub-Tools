@@ -1,0 +1,30 @@
+{
+  "id": "media.ico.generator",
+  "name": "Multi-Size Windows ICO Generator",
+  "nameAr": "مولّد أيقونات ويندوز متعددة المقاسات",
+  "description": "Converts a PNG/JPG image into a multi-resolution Windows .ico icon package (up to 256x256).",
+  "descriptionAr": "تقوم هذه الأداة باستخدام محرك ImageMagick لتحويل صورة PNG أو JPG المدخلة إلى ملف أيقونة ويندوز (.ico) يحتوي على عدة مقاسات مدمجة داخل الملف الواحد (16x16, 32x32, 48x48, 256x256)، بما يتوافق مع معايير ويندوز لعرض الأيقونات بجودة مناسبة في كل الأحجام من شريط المهام إلى سطح المكتب.",
+  "category": "معالجة الوسائط والأصول 🎨",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "magick.exe",
+    "argumentsTemplate": "convert \"{InputImage}\" -define icon:auto-resize=256,128,64,48,32,16 \"{OutputIco}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "InputImage",
+      "label": "الصورة المصدر (PNG/JPG)",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "OutputIco",
+      "label": "ملف الأيقونة الناتج (.ico)",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "game.hung.process.killer",
+  "name": "Game & Hung Process Instant Killer",
+  "nameAr": "منهي العمليات المعلقة الفوري",
+  "description": "Force-terminates a hung game or application process by its executable name.",
+  "descriptionAr": "تقوم هذه الأداة بتنفيذ أمر إنهاء قسري (taskkill /F) على اسم العملية المحدد، مع توفير قائمة منسدلة جاهزة لأشهر العمليات التي تتعلق غالباً مثل ألعاب Bannerlord و GTA5 ومحرك Godot وبرنامج VSCode، بالإضافة لخيار إدخال اسم عملية مخصص يدوياً في حال عدم توفره ضمن القائمة.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "cmd.exe",
+    "argumentsTemplate": "/c taskkill /F /IM \"{ProcessName}\" /T",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProcessName",
+      "label": "اسم العملية",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "Bannerlord.exe",
+      "options": [
+        "Bannerlord.exe",
+        "GTA5.exe",
+        "Godot_v4.exe",
+        "Code.exe",
+        "custom"
+      ]
+    }
+  ]
+}

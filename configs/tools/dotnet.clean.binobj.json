@@ -1,0 +1,23 @@
+{
+  "id": "dotnet.clean.binobj",
+  "name": "Bin & Obj Deep Cleaner",
+  "nameAr": "منظّف مجلدات bin و obj العميق",
+  "description": "Recursively deletes all bin and obj folders inside a solution directory.",
+  "descriptionAr": "تقوم هذه الأداة بالبحث بشكل تكراري (Recursive) داخل المجلد الجذري المحدد عن كل مجلدات bin و obj الخاصة بمشاريع C#، وحذفها بالكامل، مما يساعد على حل أخطاء البناء الناتجة عن ملفات تجميع تالفة أو قديمة، وتحرير مساحة تخزين قد تكون كبيرة في المشاريع الكبيرة.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"Get-ChildItem -Path '{RootDir}' -Include bin,obj -Recurse -Directory | Remove-Item -Recurse -Force\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "RootDir",
+      "label": "المجلد الجذري للحل (Solution)",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

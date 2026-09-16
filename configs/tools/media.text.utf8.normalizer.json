@@ -1,0 +1,23 @@
+{
+  "id": "media.text.utf8.normalizer",
+  "name": "Text UTF-8 BOM-Free Normalizer",
+  "nameAr": "مُوحِّد ترميز النصوص UTF-8 بدون BOM",
+  "description": "Reads a text/translation file and re-saves it as clean UTF-8 without a Byte Order Mark, preventing garbled text.",
+  "descriptionAr": "تقوم هذه الأداة بقراءة محتوى ملف النص أو الترجمة المدخل مهما كان ترميزه الأصلي، ثم إعادة كتابته وحفظه بترميز UTF-8 دون علامة البداية Byte Order Mark (BOM)، والتي تسبب أحياناً ظهور رموز غريبة أو تشوه الحروف والخطوط عند قراءتها من داخل محركات الألعاب مثل جودو أو يونيتي.",
+  "category": "معالجة الوسائط والأصول 🎨",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"$content = Get-Content -Raw -Path '{TargetFile}'; $utf8NoBom = New-Object System.Text.UTF8Encoding $false; [System.IO.File]::WriteAllText('{TargetFile}', $content, $utf8NoBom)\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "TargetFile",
+      "label": "ملف النص المستهدف",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

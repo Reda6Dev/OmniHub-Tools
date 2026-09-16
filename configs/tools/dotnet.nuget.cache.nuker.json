@@ -1,0 +1,27 @@
+{
+  "id": "dotnet.nuget.cache.nuker",
+  "name": "NuGet Global Cache Nuker",
+  "nameAr": "مُفرِّغ كاش نيوجت الشامل",
+  "description": "Clears all local NuGet caches (global-packages, http-cache, temp, plugins-cache).",
+  "descriptionAr": "تقوم هذه الأداة بتنفيذ الأمر dotnet nuget locals all --clear الذي يحذف جميع أنواع الكاش المحلية الخاصة بحزم NuGet، بما فيها مجلد الحزم العام (global-packages) وذاكرة التخزين المؤقت لطلبات HTTP، وذلك لحل مشاكل تعارض الإصدارات أو فساد الحزم وتحرير مساحة تخزين كبيرة على القرص.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"if('{Confirm}' -eq 'Yes'){{ dotnet nuget locals all --clear }} else {{ Write-Host 'تم الإلغاء' }}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "Confirm",
+      "label": "تأكيد تنفيذ العملية",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "Yes",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  ]
+}

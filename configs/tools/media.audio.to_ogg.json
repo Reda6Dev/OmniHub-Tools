@@ -1,0 +1,42 @@
+{
+  "id": "media.audio.to_ogg",
+  "name": "Game Audio to OGG Vorbis Converter",
+  "nameAr": "محوّل الصوتيات إلى صيغة OGG Vorbis",
+  "description": "Converts and compresses audio files into the OGG Vorbis format commonly used in game engines.",
+  "descriptionAr": "تقوم هذه الأداة باستخدام محرك FFmpeg لتحويل ملف الصوت المدخل إلى صيغة OGG Vorbis المضغوطة، مع إمكانية اختيار مستوى الجودة (من 4 إلى 8) للتحكم بالتوازن بين حجم الملف الناتج وجودة الصوت، وهي الصيغة الأكثر استخداماً لملفات الصوت والمؤثرات داخل محركات الألعاب مثل جودو ويونيتي.",
+  "category": "معالجة الوسائط والأصول 🎨",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "ffmpeg.exe",
+    "argumentsTemplate": "-i \"{InputAudio}\" -c:a libvorbis -q:a {Quality} \"{OutputOgg}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "InputAudio",
+      "label": "ملف الصوت المصدر",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "Quality",
+      "label": "مستوى الجودة",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "6",
+      "options": [
+        "4",
+        "6",
+        "8"
+      ]
+    },
+    {
+      "id": "OutputOgg",
+      "label": "ملف OGG الناتج",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

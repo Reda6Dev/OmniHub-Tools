@@ -1,39 +1,213 @@
 {
-  "catalogVersion": "1.0.0",
-  "name": "OmniHub Official Tools",
-  "updatedAt": "2026-09-16",
   "tools": [
     {
-      "id": "godot.headless-export",
-      "name": "Godot Headless Export",
-      "category": "godot",
+      "id": "dotnet.singlefile.publish",
+      "name": "Single-File Publisher",
+      "nameAr": "ناشر الملف التنفيذي الواحد",
+      "description": "Publishes a C# project as a single self-contained executable file.",
+      "descriptionAr": "تقوم هذه الأداة بتشغيل أمر dotnet publish مع خيارات PublishSingleFile=true و SelfContained=true، بحيث يتم تجميع مشروع C# بالكامل مع كل اعتمادياته (Dependencies) داخل ملف تنفيذي واحد (exe) لا يحتاج إلى تثبيت .NET Runtime على الجهاز المستهدف، ويتم حفظ الناتج في مجلد الإخراج المحدد.",
       "version": "1.0.0",
-      "publisher": "Reda6Dev",
-      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/godot/godot.json"
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/dotnet.singlefile.publish.json"
     },
     {
-      "id": "dotnet.build-runner",
-      "name": ".NET Project Build",
-      "category": "dotnet",
+      "id": "dotnet.nuget.cache.nuker",
+      "name": "NuGet Global Cache Nuker",
+      "nameAr": "مُفرِّغ كاش نيوجت الشامل",
+      "description": "Clears all local NuGet caches (global-packages, http-cache, temp, plugins-cache).",
+      "descriptionAr": "تقوم هذه الأداة بتنفيذ الأمر dotnet nuget locals all --clear الذي يحذف جميع أنواع الكاش المحلية الخاصة بحزم NuGet، بما فيها مجلد الحزم العام (global-packages) وذاكرة التخزين المؤقت لطلبات HTTP، وذلك لحل مشاكل تعارض الإصدارات أو فساد الحزم وتحرير مساحة تخزين كبيرة على القرص.",
       "version": "1.0.0",
-      "publisher": "Reda6Dev",
-      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/dotnet/dotnet.json"
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/dotnet.nuget.cache.nuker.json"
     },
     {
-      "id": "media.ffmpeg-convert",
-      "name": "FFmpeg Video Converter",
-      "category": "media",
+      "id": "dotnet.clean.binobj",
+      "name": "Bin & Obj Deep Cleaner",
+      "nameAr": "منظّف مجلدات bin و obj العميق",
+      "description": "Recursively deletes all bin and obj folders inside a solution directory.",
+      "descriptionAr": "تقوم هذه الأداة بالبحث بشكل تكراري (Recursive) داخل المجلد الجذري المحدد عن كل مجلدات bin و obj الخاصة بمشاريع C#، وحذفها بالكامل، مما يساعد على حل أخطاء البناء الناتجة عن ملفات تجميع تالفة أو قديمة، وتحرير مساحة تخزين قد تكون كبيرة في المشاريع الكبيرة.",
       "version": "1.0.0",
-      "publisher": "Reda6Dev",
-      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/media/ffmpeg.json"
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/dotnet.clean.binobj.json"
     },
     {
-      "id": "system.temp-cleaner",
-      "name": "Clean Windows Temp",
-      "category": "system",
+      "id": "git.quick.commit.sync",
+      "name": "Git Quick Commit & Sync",
+      "nameAr": "مزامنة واعتماد سريع لتعديلات Git",
+      "description": "Pulls latest changes, stages, commits, and pushes local changes to the remote repository.",
+      "descriptionAr": "تقوم هذه الأداة بتنفيذ تسلسل أوامر Git متكامل: git pull لجلب آخر التحديثات من المستودع البعيد، ثم git add . لإضافة كل الملفات المعدّلة، ثم git commit برسالة الاعتماد المدخلة، وأخيراً git push لرفع التعديلات، بضغطة زر واحدة دون الحاجة لفتح سطر الأوامر يدوياً.",
       "version": "1.0.0",
-      "publisher": "Reda6Dev",
-      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/system/cleaner.json"
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/git.quick.commit.sync.json"
+    },
+    {
+      "id": "git.discard.clean",
+      "name": "Git Discard & Clean",
+      "nameAr": "إلغاء التعديلات والتنظيف الكامل",
+      "description": "Discards all uncommitted changes and removes untracked files, resetting to the last clean commit.",
+      "descriptionAr": "تقوم هذه الأداة بتنفيذ الأمرين git reset --hard و git clean -fd معاً، حيث يقوم الأول بإلغاء جميع التعديلات غير المعتمدة (Uncommitted) والرجوع لآخر Commit نظيف، بينما يقوم الثاني بحذف كل الملفات والمجلدات غير المتتبعة (Untracked) من مجلد المشروع، وهي عملية لا يمكن التراجع عنها فيجب الحذر عند استخدامها.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/git.discard.clean.json"
+    },
+    {
+      "id": "godot.headless.export",
+      "name": "Godot Headless Multi-Platform Exporter",
+      "nameAr": "مُصدِّر جودو التلقائي متعدد المنصات",
+      "description": "Exports a Godot project without opening the editor UI, using a chosen export preset.",
+      "descriptionAr": "تقوم هذه الأداة بتشغيل محرك جودو بوضع Headless (بدون واجهة رسومية) باستخدام المعامل --export-release، وتصدير المشروع تلقائياً وفق القالب (Preset) المحدد مسبقاً في ملف export_presets.cfg الخاص بالمشروع، مما يسمح بأتمتة عملية البناء والتصدير لعدة منصات دون تدخل يدوي.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "Godot Engine 🎮",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/godot.headless.export.json"
+    },
+    {
+      "id": "godot.cache.nuker",
+      "name": "Godot Deep Cache & Locks Nuker",
+      "nameAr": "مُفرِّغ كاش جودو وملفات الأقفال",
+      "description": "Deletes the hidden .godot cache folder and lock files to resolve import errors.",
+      "descriptionAr": "تقوم هذه الأداة بحذف المجلد المخفي .godot الذي يحتوي على ملفات الاستيراد المؤقتة (Import Cache)، بالإضافة إلى أي ملفات قفل (.lock) متبقية من جلسة سابقة، مما يجبر المحرك على إعادة استيراد كل الأصول (Assets) من جديد عند فتح المشروع، ويحل غالبية مشاكل فساد بيانات الاستيراد.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "Godot Engine 🎮",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/godot.cache.nuker.json"
+    },
+    {
+      "id": "godot.gdscript.check",
+      "name": "GDScript Static Code Checker",
+      "nameAr": "فاحص أخطاء GDScript الساكن",
+      "description": "Statically checks all GDScript files in a project for syntax errors without launching the full editor.",
+      "descriptionAr": "تقوم هذه الأداة بتشغيل محرك جودو بوضع Headless مع المعامل --check-only، حيث يقوم المحرك بفحص جميع ملفات GDScript الموجودة في المشروع بحثاً عن أخطاء بنيوية أو لغوية (Syntax Errors) وطباعتها في سجل الإخراج، دون الحاجة لفتح واجهة المحرر الكاملة، مما يسرّع عملية اكتشاف الأخطاء قبل التشغيل الفعلي.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "Godot Engine 🎮",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/godot.gdscript.check.json"
+    },
+    {
+      "id": "godot.project.backup",
+      "name": "Godot Project Version Migrator",
+      "nameAr": "أداة النسخ الاحتياطي قبل ترقية إصدار جودو",
+      "description": "Creates a compressed backup archive of a Godot project before performing a version upgrade.",
+      "descriptionAr": "تقوم هذه الأداة بأخذ نسخة احتياطية كاملة ومضغوطة (ZIP) لمجلد مشروع جودو بالكامل، مع إضافة الطابع الزمني لاسم الملف الناتج، وذلك قبل الشروع في عملية ترقية إصدار المحرك، لضمان إمكانية الرجوع إلى النسخة الأصلية في حال فشل توافق المشروع مع الإصدار الجديد.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "Godot Engine 🎮",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/godot.project.backup.json"
+    },
+    {
+      "id": "game.hung.process.killer",
+      "name": "Game & Hung Process Instant Killer",
+      "nameAr": "منهي العمليات المعلقة الفوري",
+      "description": "Force-terminates a hung game or application process by its executable name.",
+      "descriptionAr": "تقوم هذه الأداة بتنفيذ أمر إنهاء قسري (taskkill /F) على اسم العملية المحدد، مع توفير قائمة منسدلة جاهزة لأشهر العمليات التي تتعلق غالباً مثل ألعاب Bannerlord و GTA5 ومحرك Godot وبرنامج VSCode، بالإضافة لخيار إدخال اسم عملية مخصص يدوياً في حال عدم توفره ضمن القائمة.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/game.hung.process.killer.json"
+    },
+    {
+      "id": "game.mod.unblocker",
+      "name": "Downloaded Mod & DLL Unblocker",
+      "nameAr": "فاك حظر مودات وملفات DLL المنزّلة",
+      "description": "Removes the Windows 'Zone.Identifier' block attribute from all files inside a mods folder.",
+      "descriptionAr": "تقوم هذه الأداة بالمرور على كافة الملفات الموجودة داخل مجلد المودات المحدد بشكل تكراري (Recursive)، وتنفيذ أمر Unblock-File على كل ملف لإزالة العلامة الأمنية Zone.Identifier التي يضيفها ويندوز تلقائياً للملفات المنزّلة من الإنترنت، والتي غالباً ما تمنع تحميل ملفات DLL أو المودات بشكل صحيح داخل اللعبة.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/game.mod.unblocker.json"
+    },
+    {
+      "id": "system.crash.dumps.cleaner",
+      "name": "Crash Dumps & Temp Purger",
+      "nameAr": "مُفرِّغ ملفات الانهيار المؤقتة",
+      "description": "Deletes all .dmp crash dump files from the specified directory to free up disk space.",
+      "descriptionAr": "تقوم هذه الأداة بالبحث عن كل الملفات ذات الامتداد .dmp داخل المجلد المحدد (والذي يكون افتراضياً مجلد تفريغ الانهيارات الخاص بويندوز %LOCALAPPDATA%\\CrashDumps) وحذفها بالكامل، حيث أن هذه الملفات قد تتراكم بأحجام كبيرة جداً بمرور الوقت نتيجة تكرار انهيار الألعاب أو البرامج.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/system.crash.dumps.cleaner.json"
+    },
+    {
+      "id": "system.port.killer",
+      "name": "TCP/Port Liberator",
+      "nameAr": "محرر المنافذ المحتجزة",
+      "description": "Finds and terminates the process holding a specific TCP port, then releases it.",
+      "descriptionAr": "تقوم هذه الأداة بالبحث عن العملية (Process) التي تحتجز رقم المنفذ (Port) المحدد باستخدام أمر Get-NetTCPConnection، ثم تقوم بإنهاء تلك العملية قسرياً لتحرير المنفذ، وهو أمر مفيد جداً عند ظهور خطأ 'Port already in use' أثناء تشغيل خوادم تطوير محلية مثل 8080 أو 5000.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/system.port.killer.json"
+    },
+    {
+      "id": "game.xml.localization.diff",
+      "name": "XML Mod Localization Diff Checker",
+      "nameAr": "فاحص فروقات تعريب ملفات XML",
+      "description": "Compares an original localization XML file against a translated one and reports missing or extra keys.",
+      "descriptionAr": "تقوم هذه الأداة بمقارنة ملف الترجمة الأصلي (الإنجليزي عادةً) مع ملف الترجمة المستهدف كلاهما بصيغة XML، واستخراج جميع المفاتيح (Keys) الموجودة في كل ملف، ثم عرض قائمة بالمفاتيح المفقودة من ملف الترجمة والمفاتيح الزائدة غير الموجودة في الأصل، مما يساعد فرق تعريب المودات على اكتشاف النصوص الناقصة بسرعة.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/game.xml.localization.diff.json"
+    },
+    {
+      "id": "media.ico.generator",
+      "name": "Multi-Size Windows ICO Generator",
+      "nameAr": "مولّد أيقونات ويندوز متعددة المقاسات",
+      "description": "Converts a PNG/JPG image into a multi-resolution Windows .ico icon package (up to 256x256).",
+      "descriptionAr": "تقوم هذه الأداة باستخدام محرك ImageMagick لتحويل صورة PNG أو JPG المدخلة إلى ملف أيقونة ويندوز (.ico) يحتوي على عدة مقاسات مدمجة داخل الملف الواحد (16x16, 32x32, 48x48, 256x256)، بما يتوافق مع معايير ويندوز لعرض الأيقونات بجودة مناسبة في كل الأحجام من شريط المهام إلى سطح المكتب.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "معالجة الوسائط والأصول 🎨",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/media.ico.generator.json"
+    },
+    {
+      "id": "media.audio.to_ogg",
+      "name": "Game Audio to OGG Vorbis Converter",
+      "nameAr": "محوّل الصوتيات إلى صيغة OGG Vorbis",
+      "description": "Converts and compresses audio files into the OGG Vorbis format commonly used in game engines.",
+      "descriptionAr": "تقوم هذه الأداة باستخدام محرك FFmpeg لتحويل ملف الصوت المدخل إلى صيغة OGG Vorbis المضغوطة، مع إمكانية اختيار مستوى الجودة (من 4 إلى 8) للتحكم بالتوازن بين حجم الملف الناتج وجودة الصوت، وهي الصيغة الأكثر استخداماً لملفات الصوت والمؤثرات داخل محركات الألعاب مثل جودو ويونيتي.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "معالجة الوسائط والأصول 🎨",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/media.audio.to_ogg.json"
+    },
+    {
+      "id": "media.video.compress.h264",
+      "name": "Video Compressor H.264",
+      "nameAr": "ضاغط الفيديو بصيغة H.264",
+      "description": "Compresses game trailer/gameplay videos into a lightweight, high-quality H.264 MP4 file.",
+      "descriptionAr": "تقوم هذه الأداة باستخدام محرك FFmpeg لإعادة ترميز ملف الفيديو المدخل باستخدام مرمّز H.264 (libx264) وإخراجه بصيغة MP4، مع ضبط إعدادات معدل الجودة (CRF) لتحقيق أفضل توازن ممكن بين جودة الصورة المرئية للعروض ومقاطع اللعب وبين تقليل حجم الملف الناتج قدر الإمكان.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "معالجة الوسائط والأصول 🎨",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/media.video.compress.h264.json"
+    },
+    {
+      "id": "media.image.to_webp",
+      "name": "Image WebP Converter",
+      "nameAr": "محوّل الصور إلى صيغة WebP",
+      "description": "Converts and downsizes game assets images into the modern, highly-compressed WebP format.",
+      "descriptionAr": "تقوم هذه الأداة باستخدام محرك ImageMagick لتحويل الصورة المدخلة إلى صيغة WebP الحديثة التي توفر نسبة ضغط عالية جداً مقارنة بصيغ PNG و JPG التقليدية مع الحفاظ على جودة بصرية مقبولة، مع إمكانية التحكم بمستوى الجودة (من 75 إلى 95)، وهي مفيدة لتقليل حجم أصول اللعبة النهائية.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "معالجة الوسائط والأصول 🎨",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/media.image.to_webp.json"
+    },
+    {
+      "id": "media.text.utf8.normalizer",
+      "name": "Text UTF-8 BOM-Free Normalizer",
+      "nameAr": "مُوحِّد ترميز النصوص UTF-8 بدون BOM",
+      "description": "Reads a text/translation file and re-saves it as clean UTF-8 without a Byte Order Mark, preventing garbled text.",
+      "descriptionAr": "تقوم هذه الأداة بقراءة محتوى ملف النص أو الترجمة المدخل مهما كان ترميزه الأصلي، ثم إعادة كتابته وحفظه بترميز UTF-8 دون علامة البداية Byte Order Mark (BOM)، والتي تسبب أحياناً ظهور رموز غريبة أو تشوه الحروف والخطوط عند قراءتها من داخل محركات الألعاب مثل جودو أو يونيتي.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "معالجة الوسائط والأصول 🎨",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/media.text.utf8.normalizer.json"
     }
   ]
 }

@@ -1,0 +1,23 @@
+{
+  "id": "godot.cache.nuker",
+  "name": "Godot Deep Cache & Locks Nuker",
+  "nameAr": "مُفرِّغ كاش جودو وملفات الأقفال",
+  "description": "Deletes the hidden .godot cache folder and lock files to resolve import errors.",
+  "descriptionAr": "تقوم هذه الأداة بحذف المجلد المخفي .godot الذي يحتوي على ملفات الاستيراد المؤقتة (Import Cache)، بالإضافة إلى أي ملفات قفل (.lock) متبقية من جلسة سابقة، مما يجبر المحرك على إعادة استيراد كل الأصول (Assets) من جديد عند فتح المشروع، ويحل غالبية مشاكل فساد بيانات الاستيراد.",
+  "category": "Godot Engine 🎮",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"Remove-Item -Path '{ProjectPath}\\.godot' -Recurse -Force -ErrorAction SilentlyContinue; Get-ChildItem -Path '{ProjectPath}' -Filter '*.lock' -Recurse | Remove-Item -Force\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectPath",
+      "label": "مسار مشروع جودو",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

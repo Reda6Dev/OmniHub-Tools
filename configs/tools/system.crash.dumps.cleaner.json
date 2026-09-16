@@ -1,0 +1,23 @@
+{
+  "id": "system.crash.dumps.cleaner",
+  "name": "Crash Dumps & Temp Purger",
+  "nameAr": "مُفرِّغ ملفات الانهيار المؤقتة",
+  "description": "Deletes all .dmp crash dump files from the specified directory to free up disk space.",
+  "descriptionAr": "تقوم هذه الأداة بالبحث عن كل الملفات ذات الامتداد .dmp داخل المجلد المحدد (والذي يكون افتراضياً مجلد تفريغ الانهيارات الخاص بويندوز %LOCALAPPDATA%\\CrashDumps) وحذفها بالكامل، حيث أن هذه الملفات قد تتراكم بأحجام كبيرة جداً بمرور الوقت نتيجة تكرار انهيار الألعاب أو البرامج.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"Get-ChildItem -Path '{TargetDir}' -Filter '*.dmp' -Recurse -ErrorAction SilentlyContinue | Remove-Item -Force\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "TargetDir",
+      "label": "مجلد ملفات الانهيار",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": "%LOCALAPPDATA%\\CrashDumps"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "system.port.killer",
+  "name": "TCP/Port Liberator",
+  "nameAr": "محرر المنافذ المحتجزة",
+  "description": "Finds and terminates the process holding a specific TCP port, then releases it.",
+  "descriptionAr": "تقوم هذه الأداة بالبحث عن العملية (Process) التي تحتجز رقم المنفذ (Port) المحدد باستخدام أمر Get-NetTCPConnection، ثم تقوم بإنهاء تلك العملية قسرياً لتحرير المنفذ، وهو أمر مفيد جداً عند ظهور خطأ 'Port already in use' أثناء تشغيل خوادم تطوير محلية مثل 8080 أو 5000.",
+  "category": "صيانة الألعاب والمودات 🛠️",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"$p = Get-NetTCPConnection -LocalPort {PortNumber} -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique; if($p){{ Stop-Process -Id $p -Force }}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "PortNumber",
+      "label": "رقم المنفذ",
+      "type": "Text",
+      "required": true,
+      "defaultValue": "8080"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "git.quick.commit.sync",
+  "name": "Git Quick Commit & Sync",
+  "nameAr": "مزامنة واعتماد سريع لتعديلات Git",
+  "description": "Pulls latest changes, stages, commits, and pushes local changes to the remote repository.",
+  "descriptionAr": "تقوم هذه الأداة بتنفيذ تسلسل أوامر Git متكامل: git pull لجلب آخر التحديثات من المستودع البعيد، ثم git add . لإضافة كل الملفات المعدّلة، ثم git commit برسالة الاعتماد المدخلة، وأخيراً git push لرفع التعديلات، بضغطة زر واحدة دون الحاجة لفتح سطر الأوامر يدوياً.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "powershell.exe",
+    "argumentsTemplate": "-NoProfile -ExecutionPolicy Bypass -Command \"cd '{RepoDir}'; git pull; git add .; git commit -m '{CommitMessage}'; git push\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "RepoDir",
+      "label": "مسار المستودع المحلي",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "CommitMessage",
+      "label": "رسالة الاعتماد (Commit Message)",
+      "type": "Text",
+      "required": true,
+      "defaultValue": "Quick update"
+    }
+  ]
+}

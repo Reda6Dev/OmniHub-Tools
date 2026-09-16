@@ -1,0 +1,42 @@
+{
+  "id": "media.image.to_webp",
+  "name": "Image WebP Converter",
+  "nameAr": "محوّل الصور إلى صيغة WebP",
+  "description": "Converts and downsizes game assets images into the modern, highly-compressed WebP format.",
+  "descriptionAr": "تقوم هذه الأداة باستخدام محرك ImageMagick لتحويل الصورة المدخلة إلى صيغة WebP الحديثة التي توفر نسبة ضغط عالية جداً مقارنة بصيغ PNG و JPG التقليدية مع الحفاظ على جودة بصرية مقبولة، مع إمكانية التحكم بمستوى الجودة (من 75 إلى 95)، وهي مفيدة لتقليل حجم أصول اللعبة النهائية.",
+  "category": "معالجة الوسائط والأصول 🎨",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "magick.exe",
+    "argumentsTemplate": "convert \"{InputImage}\" -quality {Quality} \"{OutputWebp}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "InputImage",
+      "label": "الصورة المصدر",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "Quality",
+      "label": "مستوى الجودة",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "85",
+      "options": [
+        "75",
+        "85",
+        "95"
+      ]
+    },
+    {
+      "id": "OutputWebp",
+      "label": "ملف WebP الناتج",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "dotnet.singlefile.publish",
+  "name": "Single-File Publisher",
+  "nameAr": "ناشر الملف التنفيذي الواحد",
+  "description": "Publishes a C# project as a single self-contained executable file.",
+  "descriptionAr": "تقوم هذه الأداة بتشغيل أمر dotnet publish مع خيارات PublishSingleFile=true و SelfContained=true، بحيث يتم تجميع مشروع C# بالكامل مع كل اعتمادياته (Dependencies) داخل ملف تنفيذي واحد (exe) لا يحتاج إلى تثبيت .NET Runtime على الجهاز المستهدف، ويتم حفظ الناتج في مجلد الإخراج المحدد.",
+  "category": "‏.NET & Git 📦",
+  "execution": {
+    "type": "ExternalProcess",
+    "executable": "dotnet.exe",
+    "argumentsTemplate": "publish \"{ProjectPath}\" -c {Configuration} -r {Runtime} --self-contained true -p:PublishSingleFile=true -o \"{OutputDir}\"",
+    "workingDirectory": null
+  },
+  "parameters": [
+    {
+      "id": "ProjectPath",
+      "label": "مسار المشروع (.csproj)",
+      "type": "FilePath",
+      "required": true,
+      "defaultValue": ""
+    },
+    {
+      "id": "Configuration",
+      "label": "وضع البناء",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "Release",
+      "options": [
+        "Release",
+        "Debug"
+      ]
+    },
+    {
+      "id": "Runtime",
+      "label": "منصة التشغيل المستهدفة",
+      "type": "Dropdown",
+      "required": true,
+      "defaultValue": "win-x64",
+      "options": [
+        "win-x64",
+        "win-x86",
+        "linux-x64"
+      ]
+    },
+    {
+      "id": "OutputDir",
+      "label": "مجلد الإخراج",
+      "type": "DirectoryPath",
+      "required": true,
+      "defaultValue": ""
+    }
+  ]
+}
