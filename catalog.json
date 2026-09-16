@@ -208,6 +208,226 @@
       "author": "Reda6Dev",
       "category": "معالجة الوسائط والأصول 🎨",
       "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/media.text.utf8.normalizer.json"
+    },
+    {
+      "id": "python.venv.setup",
+      "name": "Python Venv Creator & Setup",
+      "nameAr": "مُنشئ ومجهّز بيئات بايثون",
+      "description": "Creates a Python virtual environment in a project folder and optionally installs requirements.txt.",
+      "descriptionAr": "تقوم هذه الأداة بإنشاء بيئة عمل افتراضية (Virtual Environment) داخل مجلد المشروع المحدد باستخدام python -m venv، ثم تفعيلها وتحديث أداة pip إلى آخر إصدار، وفي حال تفعيل خيار InstallReqs ووجود ملف requirements.txt داخل المجلد، تقوم تلقائياً بتثبيت كل الاعتماديات المذكورة فيه.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/python.venv.setup.json"
+    },
+    {
+      "id": "python.pip.upgrade.all",
+      "name": "Python Bulk Pip Packages Upgrader",
+      "nameAr": "مُحدّث مكتبات بايثون الشامل",
+      "description": "Fetches all outdated pip packages and upgrades every one of them in a single batch operation.",
+      "descriptionAr": "تقوم هذه الأداة بجلب قائمة كل حزم بايثون المثبتة والتي لديها إصدار أحدث متاح باستخدام pip list --outdated، ثم تمر على كل حزمة من هذه القائمة وتقوم بتحديثها تلقائياً عبر pip install --upgrade، مما يوفر وقتاً كبيراً مقارنة بتحديث كل حزمة يدوياً واحدة تلو الأخرى.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/python.pip.upgrade.all.json"
+    },
+    {
+      "id": "git.merged.branches.cleaner",
+      "name": "Git Merged Branches Purger",
+      "nameAr": "منظف فروع Git المدمجة",
+      "description": "Finds all local branches already merged into the main line and deletes them, excluding protected branches.",
+      "descriptionAr": "تقوم هذه الأداة بفحص كل الفروع المحلية (Local Branches) داخل المستودع المحدد باستخدام git branch --merged، ثم استبعاد الفرع الحالي والفروع الرئيسية المحمية مثل master و main و dev، وحذف كل ما تبقى من فروع مدمجة بالفعل وغير مستخدمة، مما يحافظ على نظافة قائمة الفروع في المستودع.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/git.merged.branches.cleaner.json"
+    },
+    {
+      "id": "dotnet.outdated.packages",
+      "name": ".NET Outdated Packages Reporter",
+      "nameAr": "كاشف حزم دوت نت القديمة",
+      "description": "Scans a .NET project or solution and generates a report of all NuGet packages with newer versions available.",
+      "descriptionAr": "تقوم هذه الأداة بتشغيل الأمر dotnet list package --outdated على المشروع أو ملف الحل المحدد، والذي يفحص كل حزم NuGet المستخدمة داخل المشروع ويقارن إصداراتها الحالية بأحدث الإصدارات المتوفرة على مستودع NuGet، ثم يطبع تقريراً مفصلاً بكل الحزم التي تحتاج إلى تحديث.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/dotnet.outdated.packages.json"
+    },
+    {
+      "id": "git.stash.pop.manager",
+      "name": "Git Stash & Pop Manager",
+      "nameAr": "مدير حفظ واسترجاع تعديلات Git",
+      "description": "Executes a chosen Git stash operation (push or pop) inside the target repository to temporarily save or restore uncommitted changes.",
+      "descriptionAr": "تقوم هذه الأداة بتنفيذ أمر Git Stash المختار من القائمة المنسدلة داخل المستودع المحدد؛ فخيار stash push -u يقوم بحفظ كل التعديلات الحالية غير المعتمدة (بما فيها الملفات غير المتتبعة) جانباً في مخزن مؤقت وإعادة الفرع إلى حالته النظيفة، بينما خيار stash pop يقوم باسترجاع آخر تعديلات محفوظة وتطبيقها من جديد على الفرع الحالي.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "‏.NET & Git 📦",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/git.stash.pop.manager.json"
+    },
+    {
+      "id": "godot.pck.packer",
+      "name": "Godot PCK Mod Packer",
+      "nameAr": "حازم ومستخرج حزم PCK لجودو",
+      "description": "Packs a folder of assets into a Godot .pck file, or extracts an existing .pck file back into a folder, using the Godot headless CLI.",
+      "descriptionAr": "تقوم هذه الأداة، بحسب الخيار المحدد في القائمة المنسدلة، إما بتشغيل محرك جودو بوضع Headless لتصدير محتويات مجلد المصدر وتجميعها داخل ملف حزمة واحد بصيغة PCK يستخدم لتوزيع المودات أو تحديثات المحتوى، أو بالاتجاه المعاكس فك حزمة ملف PCK موجود مسبقاً واستخراج محتوياته إلى مجلد على القرص للفحص أو التعديل.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "Godot Engine 🎮",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/godot.pck.packer.json"
+    },
+    {
+      "id": "godot.texture.cleaner",
+      "name": "Godot Orphaned .import Cleaner",
+      "nameAr": "منظف مستوردات جودو اليتيمة",
+      "description": "Scans a Godot project and removes leftover .import files whose original source asset no longer exists.",
+      "descriptionAr": "تقوم هذه الأداة بالمرور بشكل تكراري على كل ملفات .import الموجودة داخل مجلد المشروع، والتحقق لكل ملف من وجود ملف الأصل (Asset) المرتبط به فعلياً على القرص، وفي حال كان الأصل الأصلي قد حُذف أو نُقل ولم يعد موجوداً، تقوم بحذف ملف .import اليتيم المرتبط به، مما يمنع تراكم الملفات الميتة ويسرّع عملية فتح المحرر.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "Godot Engine 🎮",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/godot.texture.cleaner.json"
+    },
+    {
+      "id": "godot.gdscript.docgen",
+      "name": "GDScript Documentation Generator",
+      "nameAr": "مولد توثيق سكربتات جودو",
+      "description": "Scans all .gd script files in a project, extracts function signatures and doc comments, and compiles them into a formatted Markdown file.",
+      "descriptionAr": "تقوم هذه الأداة بفحص كل ملفات GDScript ذات الامتداد .gd داخل مجلد المشروع بشكل تكراري، واستخراج توقيعات الدوال (func) والتعليقات التوثيقية المرافقة لها (##)، ثم تجميع كل هذه المعلومات وتنسيقها داخل ملف Markdown واحد منظم حسب اسم كل سكربت، ليُستخدم كمرجع توثيقي سريع لواجهة برمجة المشروع دون الحاجة لفتح كل ملف يدوياً.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "Godot Engine 🎮",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/godot.gdscript.docgen.json"
+    },
+    {
+      "id": "godot.mono.build",
+      "name": "Godot C# Headless Project Builder",
+      "nameAr": "باني مشاريع جودو C# بدون واجهة",
+      "description": "Builds the .NET solution of a Godot Mono/C# project directly via the dotnet CLI without opening the Godot editor.",
+      "descriptionAr": "تقوم هذه الأداة بتشغيل أمر dotnet build مباشرة على ملف الحل الخاص بمشروع جودو الذي يستخدم لغة C# (Godot Mono)، مع تحديد وضع البناء (Debug أو Release)، مما يسمح ببناء وتجميع كود اللعبة كخطوة مستقلة ضمن سلاسل أتمتة البناء (CI/CD) دون الحاجة لتشغيل محرر جودو كاملاً.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "Godot Engine 🎮",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/godot.mono.build.json"
+    },
+    {
+      "id": "godot.shader.cleaner",
+      "name": "Godot Shader Syntax Validator",
+      "nameAr": "فاحص صحة ملفات شيدر جودو",
+      "description": "Recursively scans all .gdshader files in a project and checks for syntax issues such as unbalanced braces.",
+      "descriptionAr": "تقوم هذه الأداة بالمرور بشكل تكراري على كل ملفات الشيدر ذات الامتداد .gdshader داخل مجلد المشروع، وإجراء فحص أساسي على بنية كل ملف للتأكد من تطابق عدد الأقواس المفتوحة مع المغلقة { } وعدم وجود أخطاء صياغية واضحة، وطباعة تقرير بأي ملف يحتوي على مشكلة محتملة لتسهيل تصحيحه قبل تشغيل اللعبة.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "Godot Engine 🎮",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/godot.shader.cleaner.json"
+    },
+    {
+      "id": "game.junction.symlink",
+      "name": "Game Mods Directory Junction Maker",
+      "nameAr": "صانع الروابط الصلبة لمجلدات المودات",
+      "description": "Creates an NTFS directory junction so a mods folder on an alternate drive appears inside the game folder without duplicating files.",
+      "descriptionAr": "تقوم هذه الأداة بتنفيذ أمر mklink /J لإنشاء وصلة مجلد صلبة (Directory Junction) بين مسار وهمي داخل مجلد اللعبة (LinkPath) ومجلد فعلي موجود على قرص آخر أو مسار مختلف (TargetPath)، مما يسمح بتخزين المودات أو الحفظ في مكان بديل مع بقاء اللعبة قادرة على الوصول إليها من مسارها الأصلي، دون الحاجة لنسخ الملفات فعلياً وبالتالي توفير مساحة تخزين كبيرة.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/game.junction.symlink.json"
+    },
+    {
+      "id": "bannerlord.submodule.validator",
+      "name": "Bannerlord SubModule.xml Validator",
+      "nameAr": "فاحص ملفات تعريف مودات بانرلورد",
+      "description": "Reads and analyzes a Bannerlord mod's SubModule.xml file, verifying that referenced DLL files exist and dependency order is correct.",
+      "descriptionAr": "تقوم هذه الأداة بقراءة وتحليل ملف SubModule.xml الموجود داخل مجلد مود لعبة Mount & Blade II: Bannerlord، واستخراج قائمة ملفات DLL المشار إليها ضمن وسم DLLs والتأكد من وجود كل ملف فعلياً على القرص داخل مجلد Bin المناسب، بالإضافة إلى فحص وسوم DependedModules للتأكد من صحة ترتيب الاعتماديات بين المودات، وطباعة أي عنصر ناقص أو خاطئ.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/bannerlord.submodule.validator.json"
+    },
+    {
+      "id": "game.saves.backup",
+      "name": "Game Saves Timestamped Auto-Backup",
+      "nameAr": "النسخ الاحتياطي التلقائي والمؤرخ لحفظ الألعاب",
+      "description": "Compresses a game saves folder into a timestamped ZIP archive stored in a designated backup directory.",
+      "descriptionAr": "تقوم هذه الأداة بضغط كامل محتويات مجلد حفظ اللعبة المحدد (SavesDir) داخل ملف أرشيف ZIP واحد، وإضافة طابع زمني دقيق بصيغة السنة والشهر واليوم والساعة والدقيقة والثانية إلى اسم الملف الناتج، ثم حفظه داخل مجلد النسخ الاحتياطية المحدد (BackupDir)، مما يسمح بالاحتفاظ بعدة نسخ مؤرخة من ملفات الحفظ والعودة لأي منها عند الحاجة.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/game.saves.backup.json"
+    },
+    {
+      "id": "system.network.flush.repair",
+      "name": "Network DNS Flush & Winsock Reset",
+      "nameAr": "مفرغ كاش DNS ومصلح اتصال الألعاب",
+      "description": "Flushes the local DNS resolver cache and resets the Winsock network stack to fix online multiplayer connectivity issues.",
+      "descriptionAr": "تقوم هذه الأداة بتنفيذ أمرين متتاليين لإصلاح مشاكل الاتصال الشائعة في الألعاب الجماعية عبر الإنترنت: الأمر الأول ipconfig /flushdns يقوم بتفريغ ذاكرة التخزين المؤقت لأسماء النطاقات (DNS Cache)، والأمر الثاني netsh winsock reset يقوم بإعادة ضبط مكونات Winsock المسؤولة عن اتصالات الشبكة على مستوى نظام التشغيل، وقد يتطلب إعادة تشغيل الجهاز لتفعيل التغييرات بالكامل.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/system.network.flush.repair.json"
+    },
+    {
+      "id": "archive.bulk.extractor",
+      "name": "Bulk Archives Multi-Folder Extractor",
+      "nameAr": "المفكك الجماعي للملفات المضغوطة",
+      "description": "Extracts every ZIP archive found in a folder, placing each archive's contents into its own dedicated subfolder.",
+      "descriptionAr": "تقوم هذه الأداة بالبحث عن كل ملفات الأرشيف بصيغة ZIP الموجودة مباشرة داخل المجلد المحدد، ولكل ملف أرشيف يتم إنشاء مجلد فرعي جديد يحمل نفس اسم الملف (بدون الامتداد)، ثم فك ضغط محتويات ذلك الأرشيف بالكامل داخل مجلده الفرعي الخاص، مما يمنع اختلاط محتويات الأرشيفات المتعددة ببعضها عند فك الضغط الجماعي.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "صيانة الألعاب والمودات 🛠️",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/archive.bulk.extractor.json"
+    },
+    {
+      "id": "media.gif.to.mp4",
+      "name": "Animated GIF to Lightweight MP4",
+      "nameAr": "محول صور GIF إلى فيديو MP4 فائق الخفة",
+      "description": "Converts an animated GIF file into a highly compressed, web-friendly MP4 video using FFmpeg.",
+      "descriptionAr": "تقوم هذه الأداة باستخدام محرك FFmpeg لتحويل ملف الصورة المتحركة GIF المدخل إلى فيديو بصيغة MP4، مع ضبط خيار movflags faststart لتسريع بدء التشغيل عبر الويب، وتحويل تنسيق الألوان إلى yuv420p لضمان التوافق مع أغلب المشغلات، بالإضافة لضبط أبعاد الفيديو لتكون أرقاماً زوجية، مما ينتج ملفاً أصغر حجماً بكثير من ملف GIF الأصلي مع الحفاظ على جودة الحركة.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "معالجة الوسائط والأصول 🎨",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/media.gif.to.mp4.json"
+    },
+    {
+      "id": "text.bulk.regex.replacer",
+      "name": "Bulk Translation Text Replacer",
+      "nameAr": "مستبدل مصطلحات التعريب المجمع",
+      "description": "Replaces a specified text or pattern across every matching file in a folder in a single batch operation.",
+      "descriptionAr": "تقوم هذه الأداة بالمرور على كل الملفات المطابقة لنمط الفلتر المحدد (مثل *.xml أو *.json) داخل المجلد الهدف بشكل تكراري، وتنفيذ عملية استبدال نصي لكل نص FindText الموجود داخل محتوى الملف واستبداله بالنص ReplaceText، ثم إعادة حفظ الملف بترميز UTF-8، وهي مفيدة جداً لتحديث مصطلح ترجمة معين بشكل جماعي عبر عشرات أو مئات ملفات الترجمة دفعة واحدة.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "معالجة الوسائط والأصول 🎨",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/text.bulk.regex.replacer.json"
+    },
+    {
+      "id": "media.audio.normalize",
+      "name": "Game Audio Loudness Normalizer (EBU R128)",
+      "nameAr": "موحد وموازن علو الصوتيات للألعاب",
+      "description": "Applies EBU R128 loudness normalization to an audio file via FFmpeg's loudnorm filter, targeting a chosen LUFS level.",
+      "descriptionAr": "تقوم هذه الأداة بتشغيل فلتر loudnorm الخاص بمحرك FFmpeg والمعتمد على معيار EBU R128 العالمي لقياس وتوحيد مستوى علو الصوت (Loudness) في ملف الصوت المدخل، بحيث يتم ضبط شدة الصوت لتطابق قيمة LUFS المستهدفة المختارة (مثل 16- أو 23- أو 14-)، مما يضمن توحيد مستوى الصوت بين كل ملفات المؤثرات أو الحوارات داخل اللعبة ومنع التفاوت المزعج بينها.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "معالجة الوسائط والأصول 🎨",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/media.audio.normalize.json"
+    },
+    {
+      "id": "media.video.extract.audio",
+      "name": "Video Audio Stream Extractor",
+      "nameAr": "مستخرج الصوت من مقاطع الفيديو",
+      "description": "Extracts the audio stream from a video file and converts it to the chosen output audio format via FFmpeg.",
+      "descriptionAr": "تقوم هذه الأداة باستخدام محرك FFmpeg لاستخراج مسار الصوت (Audio Stream) الموجود داخل ملف الفيديو المدخل بشكل منفصل عن الصورة، ثم تحويله وترميزه إلى صيغة الصوت المختارة من القائمة المنسدلة (ogg أو mp3 أو wav) بجودة عالية، وحفظه كملف صوتي مستقل، وهي مفيدة لاستخراج الموسيقى التصويرية أو المؤثرات الصوتية من مقاطع اللعب المسجلة.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "معالجة الوسائط والأصول 🎨",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/media.video.extract.audio.json"
+    },
+    {
+      "id": "text.json.formatter",
+      "name": "JSON Beautifier & Indentation Fixer",
+      "nameAr": "منسق ومصلح ملفات JSON",
+      "description": "Reads a JSON file and re-writes it with clean, standardized indentation and pure UTF-8 encoding.",
+      "descriptionAr": "تقوم هذه الأداة بقراءة محتوى ملف JSON المحدد وتحليله بنيوياً (Parsing) للتأكد من صحة صياغته، ثم إعادة طباعته وتنسيقه بمسافات بادئة (Indentation) موحدة حسب القيمة المختارة (2 أو 4 مسافات)، وحفظ الملف الناتج بترميز UTF-8 نقي دون أي رموز غريبة، مما يجعل الملف أسهل للقراءة والمراجعة والتحكم بالإصدارات عبر Git.",
+      "version": "1.0.0",
+      "author": "Reda6Dev",
+      "category": "معالجة الوسائط والأصول 🎨",
+      "downloadUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/configs/tools/text.json.formatter.json"
     }
   ]
 }
