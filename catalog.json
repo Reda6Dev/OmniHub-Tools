@@ -1,4 +1,4 @@
-﻿{
+{
   "catalogVersion": "1.0.0",
   "name": "OmniHub Official Tools",
   "updatedAt": "2026-09-16",
@@ -9,7 +9,7 @@
       "category": "godot",
       "version": "4.3.0",
       "publisher": "Reda6Dev",
-      "definitionUrl": "tools/godot/godot.json"
+      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/godot/godot.json"
     },
     {
       "id": "dotnet-sdk",
@@ -17,7 +17,7 @@
       "category": "dotnet",
       "version": "8.0.0",
       "publisher": "Reda6Dev",
-      "definitionUrl": "tools/dotnet/dotnet.json"
+      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/dotnet/dotnet.json"
     },
     {
       "id": "ffmpeg-media",
@@ -25,7 +25,7 @@
       "category": "media",
       "version": "7.0.0",
       "publisher": "Reda6Dev",
-      "definitionUrl": "tools/media/ffmpeg.json"
+      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/media/ffmpeg.json"
     },
     {
       "id": "sys-cleaner",
@@ -33,7 +33,7 @@
       "category": "system",
       "version": "1.0.0",
       "publisher": "Reda6Dev",
-      "definitionUrl": "tools/system/cleaner.json"
+      "definitionUrl": "https://raw.githubusercontent.com/Reda6Dev/OmniHub-Tools/main/tools/system/cleaner.json"
     }
   ]
 }
